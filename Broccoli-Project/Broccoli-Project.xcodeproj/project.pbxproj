@@ -16,7 +16,6 @@
 		16BFE78D27F64FFE0025939E /* ArtistEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */; };
 		16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78E27F650190025939E /* ArtistDetailedView.swift */; };
 		16BFE79127F650270025939E /* TasteDiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE79027F650270025939E /* TasteDiveService.swift */; };
-		16BFE79327F650C90025939E /* TDItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE79227F650C90025939E /* TDItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryView.swift; sourceTree = "<group>"; };
 		16BFE78E27F650190025939E /* ArtistDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailedView.swift; sourceTree = "<group>"; };
 		16BFE79027F650270025939E /* TasteDiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteDiveService.swift; sourceTree = "<group>"; };
-		16BFE79227F650C90025939E /* TDItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +68,6 @@
 				16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */,
 				16BFE78E27F650190025939E /* ArtistDetailedView.swift */,
 				16BFE79027F650270025939E /* TasteDiveService.swift */,
-				16BFE79227F650C90025939E /* TDItem.swift */,
 				16389E6E27F3B1A700A9B662 /* Assets.xcassets */,
 				16389E7027F3B1A700A9B662 /* Preview Content */,
 			);
@@ -161,7 +158,6 @@
 				16BFE79127F650270025939E /* TasteDiveService.swift in Sources */,
 				16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */,
 				16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */,
-				16BFE79327F650C90025939E /* TDItem.swift in Sources */,
 				16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
