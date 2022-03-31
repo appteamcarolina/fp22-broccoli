@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ResultsListView: View {
+    @ObservedObject var vm: MainViewModel = MainViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(TasteDiveService.getExampleData(), id: \.name) { item in
+                ArtistEntryView(artist: item.name)
+            }
+        }
     }
 }
 
