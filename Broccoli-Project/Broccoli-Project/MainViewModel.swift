@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class MainViewModel: ObservableObject {
+    @Published var recommendationList: [TDItem] = []
+    @Published var searchBarContent: String = ""
+    @Published var queryList: [TDItem] = [] // What the user will send to the TD API
+}

@@ -12,10 +12,10 @@ public final class TasteDiveService {
 }
 
 extension TasteDiveService {
-    static func getExampleData() -> [TDResult] {
-        var dummy: [TDResult] = []
+    static func getExampleData() -> [TDItem] {
+        var dummy: [TDItem] = []
         for i in 0...10 {
-            dummy.append(TDResult(name: "Artist \(i)", type: "music"))
+            dummy.append(TDItem(name: "Artist \(i)", type: "music"))
         }
         return dummy
     }
@@ -31,7 +31,7 @@ struct TDResponse: Decodable {
 
 struct TDSimilarData: Decodable {
     
-    let results: [TDResult]
+    let results: [TDItem]
     enum CodingKeys: String, CodingKey {
         case results = "Results"
     }
@@ -39,7 +39,7 @@ struct TDSimilarData: Decodable {
 }
 
 
-struct TDResult: Codable {
+struct TDItem: Codable {
     let name: String
     let type: String
     
