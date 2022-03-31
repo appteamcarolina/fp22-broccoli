@@ -11,8 +11,21 @@ struct ArtistEntryView: View {
     let artist: String
     var body: some View {
         NavigationLink(destination: ArtistDetailedView()) {
-            Text(artist)
-            .bold()
+            HStack {
+                Image("pink_floyd")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
+                VStack(alignment: .leading) {
+                    Text(artist)
+                        .foregroundColor(.primary)
+                    .bold()
+                    Text("Artist")
+                }
+                .padding(.leading, 10)
+            }
+            
         }
     }
 }
