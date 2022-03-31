@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */; };
-		16389E6D27F3B1A600A9B662 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6C27F3B1A600A9B662 /* ContentView.swift */; };
+		16389E6D27F3B1A600A9B662 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6C27F3B1A600A9B662 /* MainView.swift */; };
 		16389E6F27F3B1A700A9B662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16389E6E27F3B1A700A9B662 /* Assets.xcassets */; };
 		16389E7227F3B1A700A9B662 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16389E7127F3B1A700A9B662 /* Preview Assets.xcassets */; };
+		16BFE78927F64FC00025939E /* ResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78827F64FC00025939E /* ResultsListView.swift */; };
+		16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78A27F64FDC0025939E /* MainViewModel.swift */; };
+		16BFE78D27F64FFE0025939E /* ArtistEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */; };
+		16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78E27F650190025939E /* ArtistDetailedView.swift */; };
+		16BFE79127F650270025939E /* TasteDiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE79027F650270025939E /* TasteDiveService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16389E6727F3B1A600A9B662 /* Broccoli-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Broccoli-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectApp.swift; sourceTree = "<group>"; };
-		16389E6C27F3B1A600A9B662 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		16389E6C27F3B1A600A9B662 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		16389E6E27F3B1A700A9B662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16389E7127F3B1A700A9B662 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16BFE78827F64FC00025939E /* ResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListView.swift; sourceTree = "<group>"; };
+		16BFE78A27F64FDC0025939E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryView.swift; sourceTree = "<group>"; };
+		16BFE78E27F650190025939E /* ArtistDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailedView.swift; sourceTree = "<group>"; };
+		16BFE79027F650270025939E /* TasteDiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteDiveService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +62,12 @@
 			isa = PBXGroup;
 			children = (
 				16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */,
-				16389E6C27F3B1A600A9B662 /* ContentView.swift */,
+				16389E6C27F3B1A600A9B662 /* MainView.swift */,
+				16BFE78827F64FC00025939E /* ResultsListView.swift */,
+				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
+				16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */,
+				16BFE78E27F650190025939E /* ArtistDetailedView.swift */,
+				16BFE79027F650270025939E /* TasteDiveService.swift */,
 				16389E6E27F3B1A700A9B662 /* Assets.xcassets */,
 				16389E7027F3B1A700A9B662 /* Preview Content */,
 			);
@@ -137,8 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16389E6D27F3B1A600A9B662 /* ContentView.swift in Sources */,
+				16BFE78D27F64FFE0025939E /* ArtistEntryView.swift in Sources */,
+				16389E6D27F3B1A600A9B662 /* MainView.swift in Sources */,
+				16BFE78927F64FC00025939E /* ResultsListView.swift in Sources */,
+				16BFE79127F650270025939E /* TasteDiveService.swift in Sources */,
 				16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */,
+				16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */,
+				16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +302,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "broccoli.Broccoli-Project";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.broccoli.Broccoli-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -311,7 +331,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "broccoli.Broccoli-Project";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.broccoli.Broccoli-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
