@@ -8,13 +8,34 @@
 import SwiftUI
 
 struct ArtistEntryView: View {
+    let artist: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink(destination: ArtistDetailedView()) {
+            HStack {
+                Image("pink_floyd")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .clipShape(Circle())
+                VStack(alignment: .leading) {
+                    Text(artist)
+                        .foregroundColor(.primary)
+                    Text("Artist")
+                        .foregroundColor(.secondary)
+                }
+                .padding(.leading, 6)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .padding(.trailing)
+                    .foregroundColor(.secondary)
+            }
+            
+        }
     }
 }
 
 struct ArtistEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistEntryView()
+        ArtistEntryView(artist: "Pink Floyd")
     }
 }
