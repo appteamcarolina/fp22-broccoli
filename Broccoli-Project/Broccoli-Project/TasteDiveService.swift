@@ -9,6 +9,33 @@ import Foundation
 
 public final class TasteDiveService {
     
+    static private let decoder = JSONDecoder()
+    
+    static private func convertToURLQueryItems(queryItems: [TDItem]) -> [URLQueryItem] {
+        var queryStrings = [String]()
+        for item in queryItems {
+            queryStrings.append(item.name)
+        }
+        return [URLQueryItem(name: "q", value: queryStrings.joined(separator: ", "))]
+    }
+    
+    static func fetchRecommendations(queryItems: [TDItem]) async throws -> [TDItem] {
+        var urlcomps = URLComponents(string: "https://tastedive.com/api/similar")!
+        urlcomps.queryItems = convertToURLQueryItems(queryItems: queryItems)
+        
+        
+        var request = URLRequest(url: urlcomps.url!)
+        request.httpMethod = "GET"
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let response = response as? HTTPURLResponse {
+            print(response.statusCode)
+        }
+        
+        let decodedResponse = try decoder.decode(TDResponse.self, from: data)
+        return decodedResponse.data.results
+    }
 }
 
 extension TasteDiveService {
