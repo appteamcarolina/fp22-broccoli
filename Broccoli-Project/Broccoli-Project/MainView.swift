@@ -9,8 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            NavigationLink(destination: ResultsListView()) {
+                Text("Click")
+            }
+        }
     }
 }
 

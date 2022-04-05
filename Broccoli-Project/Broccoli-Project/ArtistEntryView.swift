@@ -14,16 +14,20 @@ struct ArtistEntryView: View {
             HStack {
                 Image("pink_floyd")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
                     .clipShape(Circle())
                 VStack(alignment: .leading) {
                     Text(artist)
                         .foregroundColor(.primary)
-                    .bold()
                     Text("Artist")
+                        .foregroundColor(.secondary)
                 }
-                .padding(.leading, 10)
+                .padding(.leading, 6)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .padding(.trailing)
+                    .foregroundColor(.secondary)
             }
             
         }

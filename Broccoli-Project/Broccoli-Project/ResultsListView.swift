@@ -10,11 +10,16 @@ import SwiftUI
 struct ResultsListView: View {
     @ObservedObject var vm: MainViewModel = MainViewModel()
     var body: some View {
-        List {
-            ForEach(TasteDiveService.getExampleData(), id: \.name) { item in
-                ArtistEntryView(artist: item.name)
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach(TasteDiveService.getExampleData(), id: \.name) { item in
+                    ArtistEntryView(artist: item.name)
+                    Divider()
+                }
             }
+            .padding()
         }
+        .navigationTitle("Results")
     }
 }
 
