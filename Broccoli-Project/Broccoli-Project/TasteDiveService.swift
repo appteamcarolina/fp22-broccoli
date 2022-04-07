@@ -15,18 +15,21 @@ public final class TasteDiveService {
         var queryStrings = [String]()
         for item in queryItems {
             queryStrings.append("\(item.type):\(item.name)")
+//            queryStrings.append("\(item.name)")
         }
         return queryStrings.joined(separator: ", ")
     }
     
     static private func convertToURLQueryItems(queryItems: [TDItem]) -> [URLQueryItem] {
-        return [URLQueryItem(name: "q", value: generateQueryString(queryItems: queryItems))]
+        return [URLQueryItem(name: "q", value: generateQueryString(queryItems: queryItems)),
+                URLQueryItem(name: "k", value: "435192-Broccoli-4PAMC86G"),
+                URLQueryItem(name:"info", value: "1")
+        ]
     }
     
     static func fetchRecommendations(queryItems: [TDItem]) async throws -> [TDItem] {
         var urlcomps = URLComponents(string: "https://tastedive.com/api/similar")!
         urlcomps.queryItems = convertToURLQueryItems(queryItems: queryItems)
-        
         
         var request = URLRequest(url: urlcomps.url!)
         request.httpMethod = "GET"
@@ -52,6 +55,7 @@ extension TasteDiveService {
     }
 }
 
+
 struct TDResponse: Decodable {
     let data: TDSimilarData
     
@@ -73,10 +77,30 @@ struct TDSimilarData: Decodable {
 struct TDItem: Codable {
     let name: String
     let type: String
+    let wTeaser: String
+    let wUrl: String
+    let yUrl: String
+    let yID: String
+    
+    init(name: String, type: String) {
+        self.name = name
+        self.type = type
+        self.wTeaser = ""
+        self.wUrl = ""
+        self.yUrl = ""
+        self.yID = ""
+        
+    }
     
     enum CodingKeys: String, CodingKey {
         case name = "Name"
         case type = "Type"
+        case wTeaser
+        case wUrl
+        case yUrl
+        case yID
     }
 }
+
+
 
