@@ -11,12 +11,16 @@ public final class TasteDiveService {
     
     static private let decoder = JSONDecoder()
     
-    static private func convertToURLQueryItems(queryItems: [TDItem]) -> [URLQueryItem] {
+    static private func generateQueryString(queryItems: [TDItem]) -> String {
         var queryStrings = [String]()
         for item in queryItems {
             queryStrings.append(item.name)
         }
-        return [URLQueryItem(name: "q", value: queryStrings.joined(separator: ", "))]
+        return queryStrings.joined(separator: ", ")
+    }
+    
+    static private func convertToURLQueryItems(queryItems: [TDItem]) -> [URLQueryItem] {
+        return [URLQueryItem(name: "q", value: generateQueryString(queryItems: queryItems))]
     }
     
     static func fetchRecommendations(queryItems: [TDItem]) async throws -> [TDItem] {
