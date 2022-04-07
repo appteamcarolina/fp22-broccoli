@@ -14,7 +14,7 @@ public final class TasteDiveService {
     static private func generateQueryString(queryItems: [TDItem]) -> String {
         var queryStrings = [String]()
         for item in queryItems {
-            queryStrings.append(item.name)
+            queryStrings.append("\(item.type):\(item.name)")
         }
         return queryStrings.joined(separator: ", ")
     }
