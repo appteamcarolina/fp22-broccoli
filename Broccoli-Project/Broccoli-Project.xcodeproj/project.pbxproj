@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161783DB27FEAC650052D0AD /* Broccoli_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */; };
 		16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */; };
 		16389E6D27F3B1A600A9B662 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6C27F3B1A600A9B662 /* MainView.swift */; };
 		16389E6F27F3B1A700A9B662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16389E6E27F3B1A700A9B662 /* Assets.xcassets */; };
@@ -18,7 +19,19 @@
 		16BFE79127F650270025939E /* TasteDiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE79027F650270025939E /* TasteDiveService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		161783DC27FEAC650052D0AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16389E5F27F3B1A600A9B662 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16389E6627F3B1A600A9B662;
+			remoteInfo = "Broccoli-Project";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Broccoli-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectTests.swift; sourceTree = "<group>"; };
 		16389E6727F3B1A600A9B662 /* Broccoli-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Broccoli-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectApp.swift; sourceTree = "<group>"; };
 		16389E6C27F3B1A600A9B662 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -32,6 +45,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		161783D527FEAC650052D0AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16389E6427F3B1A600A9B662 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +62,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161783D927FEAC650052D0AD /* Broccoli-ProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */,
+			);
+			path = "Broccoli-ProjectTests";
+			sourceTree = "<group>";
+		};
 		16389E5E27F3B1A600A9B662 = {
 			isa = PBXGroup;
 			children = (
 				16389E6927F3B1A600A9B662 /* Broccoli-Project */,
+				161783D927FEAC650052D0AD /* Broccoli-ProjectTests */,
 				16389E6827F3B1A600A9B662 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				16389E6727F3B1A600A9B662 /* Broccoli-Project.app */,
+				161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +115,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		161783D727FEAC650052D0AD /* Broccoli-ProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "Broccoli-ProjectTests" */;
+			buildPhases = (
+				161783D427FEAC650052D0AD /* Sources */,
+				161783D527FEAC650052D0AD /* Frameworks */,
+				161783D627FEAC650052D0AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				161783DD27FEAC650052D0AD /* PBXTargetDependency */,
+			);
+			name = "Broccoli-ProjectTests";
+			productName = "Broccoli-ProjectTests";
+			productReference = 161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		16389E6627F3B1A600A9B662 /* Broccoli-Project */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16389E7527F3B1A700A9B662 /* Build configuration list for PBXNativeTarget "Broccoli-Project" */;
@@ -112,6 +160,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					161783D727FEAC650052D0AD = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 16389E6627F3B1A600A9B662;
+					};
 					16389E6627F3B1A600A9B662 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -131,11 +183,19 @@
 			projectRoot = "";
 			targets = (
 				16389E6627F3B1A600A9B662 /* Broccoli-Project */,
+				161783D727FEAC650052D0AD /* Broccoli-ProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		161783D627FEAC650052D0AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16389E6527F3B1A600A9B662 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +208,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		161783D427FEAC650052D0AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161783DB27FEAC650052D0AD /* Broccoli_ProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16389E6327F3B1A600A9B662 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,7 +232,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		161783DD27FEAC650052D0AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16389E6627F3B1A600A9B662 /* Broccoli-Project */;
+			targetProxy = 161783DC27FEAC650052D0AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		161783DE27FEAC650052D0AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M23G284TD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alecnipp.Broccoli-ProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Broccoli-Project.app/Broccoli-Project";
+			};
+			name = Debug;
+		};
+		161783DF27FEAC650052D0AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M23G284TD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alecnipp.Broccoli-ProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Broccoli-Project.app/Broccoli-Project";
+			};
+			name = Release;
+		};
 		16389E7327F3B1A700A9B662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,6 +456,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "Broccoli-ProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				161783DE27FEAC650052D0AD /* Debug */,
+				161783DF27FEAC650052D0AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Broccoli-Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
