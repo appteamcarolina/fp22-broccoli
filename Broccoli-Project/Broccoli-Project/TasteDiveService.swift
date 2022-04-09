@@ -15,7 +15,6 @@ public final class TasteDiveService {
         var queryStrings = [String]()
         for item in queryItems {
             queryStrings.append("\(item.type):\(item.name)")
-//            queryStrings.append("\(item.name)")
         }
         return queryStrings.joined(separator: ", ")
     }
