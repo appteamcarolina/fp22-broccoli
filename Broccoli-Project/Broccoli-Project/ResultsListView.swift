@@ -11,20 +11,33 @@ struct ResultsListView: View {
     @ObservedObject var vm: MainViewModel
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
-                ForEach(vm.recommendationList, id: \.name) { item in
-                    MediaEntryView(TDData: item)
-                    Divider()
+            switch vm.queryStatus {
+            case .loading:
+                Text("Loading...")
+            case .success:
+                VStack(alignment: .leading) {
+                    ForEach(vm.recommendationList, id: \.name) { item in
+                        MediaEntryView(TDData: item)
+                        Divider()
+                    }
                 }
+                .padding()
+            case .failure:
+                Text("Failed to fetch recommendations.")
+            case .idle:
+                Text("Something went wrong")
             }
-            .padding()
+            
         }
         .navigationTitle("Results")
         .task {
             do {
-                vm.recommendationList = try await TasteDiveService.fetchRecommendations(queryItems: [TDQuery(name: "Rush", type: MediaType.movie)])
+                vm.queryStatus = .loading
+                vm.recommendationList = try await TasteDiveService.fetchRecommendations(queryItems: vm.queryList)
+                vm.queryStatus = .success
             }
             catch {
+                vm.queryStatus = .failure
                 print(error)
             }
         }

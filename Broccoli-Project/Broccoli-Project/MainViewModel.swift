@@ -12,5 +12,15 @@ class MainViewModel: ObservableObject {
     @Published var searchBarContent: String = ""
     @Published var queryList: [TDQuery] = [] // What the user will send to the TD API
     @Published var selectedQueryType: MediaType = .band
+    @Published var queryStatus = QueryStatus.idle
+    
+    enum QueryStatus {
+        case idle
+        case loading
+        case success
+        case failure
+    }
     
 }
+
+
