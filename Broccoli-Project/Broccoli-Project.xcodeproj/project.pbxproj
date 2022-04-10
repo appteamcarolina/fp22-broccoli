@@ -17,6 +17,8 @@
 		16BFE78D27F64FFE0025939E /* ArtistEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */; };
 		16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78E27F650190025939E /* ArtistDetailedView.swift */; };
 		16BFE79127F650270025939E /* TasteDiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE79027F650270025939E /* TasteDiveService.swift */; };
+		16FB4446280231EA0054DCB6 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB4445280231EA0054DCB6 /* HTMLParser.swift */; };
+		16FB4449280232120054DCB6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 16FB4448280232120054DCB6 /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryView.swift; sourceTree = "<group>"; };
 		16BFE78E27F650190025939E /* ArtistDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailedView.swift; sourceTree = "<group>"; };
 		16BFE79027F650270025939E /* TasteDiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteDiveService.swift; sourceTree = "<group>"; };
+		16FB4445280231EA0054DCB6 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FB4449280232120054DCB6 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +100,7 @@
 				16BFE78827F64FC00025939E /* ResultsListView.swift */,
 				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
 				16BFE78C27F64FFE0025939E /* ArtistEntryView.swift */,
+				16FB4445280231EA0054DCB6 /* HTMLParser.swift */,
 				16BFE78E27F650190025939E /* ArtistDetailedView.swift */,
 				16BFE79027F650270025939E /* TasteDiveService.swift */,
 				16389E6E27F3B1A700A9B662 /* Assets.xcassets */,
@@ -146,6 +151,9 @@
 			dependencies = (
 			);
 			name = "Broccoli-Project";
+			packageProductDependencies = (
+				16FB4448280232120054DCB6 /* SwiftSoup */,
+			);
 			productName = "Broccoli-Project";
 			productReference = 16389E6727F3B1A600A9B662 /* Broccoli-Project.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 16389E5E27F3B1A600A9B662;
+			packageReferences = (
+				16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 16389E6827F3B1A600A9B662 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -225,6 +236,7 @@
 				16BFE78927F64FC00025939E /* ResultsListView.swift in Sources */,
 				16BFE79127F650270025939E /* TasteDiveService.swift in Sources */,
 				16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */,
+				16FB4446280231EA0054DCB6 /* HTMLParser.swift in Sources */,
 				16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */,
 				16BFE78F27F650190025939E /* ArtistDetailedView.swift in Sources */,
 			);
@@ -484,6 +496,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16FB4448280232120054DCB6 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 16389E5F27F3B1A600A9B662 /* Project object */;
 }

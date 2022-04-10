@@ -11,22 +11,22 @@ public final class TasteDiveService {
     
     static private let decoder = JSONDecoder()
     
-    static private func generateQueryString(queryItems: [TDItem]) -> String {
+    static private func generateQueryString(queryItems: [TDQuery]) -> String {
         var queryStrings = [String]()
         for item in queryItems {
-            queryStrings.append("\(item.type):\(item.name)")
+            queryStrings.append("\(item.type.rawValue):\(item.name)")
         }
         return queryStrings.joined(separator: ", ")
     }
     
-    static private func convertToURLQueryItems(queryItems: [TDItem]) -> [URLQueryItem] {
+    static private func convertToURLQueryItems(queryItems: [TDQuery]) -> [URLQueryItem] {
         return [URLQueryItem(name: "q", value: generateQueryString(queryItems: queryItems)),
                 URLQueryItem(name: "k", value: "435192-Broccoli-4PAMC86G"),
                 URLQueryItem(name:"info", value: "1")
         ]
     }
     
-    static func fetchRecommendations(queryItems: [TDItem]) async throws -> [TDItem] {
+    static func fetchRecommendations(queryItems: [TDQuery]) async throws -> [TDItem] {
         var urlcomps = URLComponents(string: "https://tastedive.com/api/similar")!
         urlcomps.queryItems = convertToURLQueryItems(queryItems: queryItems)
         
@@ -54,6 +54,12 @@ extension TasteDiveService {
     }
 }
 
+
+struct TDQuery: Identifiable {
+    let name: String
+    let type: MediaType
+    let id = UUID()
+}
 
 struct TDResponse: Decodable {
     let data: TDSimilarData

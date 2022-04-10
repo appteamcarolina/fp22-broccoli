@@ -7,20 +7,34 @@
 
 import SwiftUI
 
-struct ArtistEntryView: View {
-    let artist: String
+struct MediaEntryView: View {
+    let TDData: TDItem
     var body: some View {
         NavigationLink(destination: ArtistDetailedView()) {
             HStack {
-                Image("pink_floyd")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .clipShape(Circle())
+                AsyncImage(url: URL(string: HTMLParser.getImageURLString(wURLString: TDData.wUrl)!)) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.purple.opacity(0.1)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    case .failure(_):
+                        Image(systemName: "exclamationmark.icloud")
+                            .resizable()
+                            .scaledToFit()
+                    @unknown default:
+                        Image(systemName: "exclamationmark.icloud")
+                    }
+                }
+                .frame(width: 60, height: 60)
+                .clipShape(Circle())
+                    
                 VStack(alignment: .leading) {
-                    Text(artist)
+                    Text(TDData.name)
                         .foregroundColor(.primary)
-                    Text("Artist")
+                    Text(TDData.type)
                         .foregroundColor(.secondary)
                 }
                 .padding(.leading, 6)
@@ -34,8 +48,8 @@ struct ArtistEntryView: View {
     }
 }
 
-struct ArtistEntryView_Previews: PreviewProvider {
+struct MediaEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistEntryView(artist: "Pink Floyd")
+        MediaEntryView(TDData: TDItem(name: "Pink Floyd", type: "band"))
     }
 }

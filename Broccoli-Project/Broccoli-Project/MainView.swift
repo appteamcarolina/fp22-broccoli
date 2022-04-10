@@ -8,57 +8,62 @@
 import SwiftUI
 
 enum MediaType: String, CaseIterable {
-    case music = "music"
+    case band = "band"
     case movie = "movie"
     case show = "show"
     case book = "book"
     case author = "author"
+    
+    func toString() -> String {
+        if self == MediaType.band {
+            return "artist"
+        }
+        else {
+            return self.rawValue
+        }
+    }
 }
 
 struct MainView: View {
     private let mediaTypes = MediaType.allCases
-    @State private var inputKeywords = [String]()
-    @State private var inputTypes = [Int]()
-    @State private var searchString = ""
-    @State private var selectedType = 0
+    @StateObject private var vm = MainViewModel()
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            HStack {
-                Image(systemName: "magnifyingglass")
-                TextField("Search Bar", text: $searchString)
-                    .disableAutocorrection(true)
-                    .onSubmit {
-                        inputKeywords.append(searchString)
-                        searchString = ""
-                        inputTypes.append(selectedType)
-                        selectedType = 0
-                    }
-            }
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 30)
-                .stroke())
-            .padding()
-            Picker("Choose a type", selection: $selectedType) {
-                ForEach(MediaType.allCases, id: \.self) {
-                    Text($0.rawValue)
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    TextField("Search Bar", text: $vm.searchBarContent)
+                        .disableAutocorrection(true)
+                        .onSubmit {
+                            vm.queryList.append(TDQuery(name: vm.searchBarContent, type: vm.selectedQueryType))
+                            vm.selectedQueryType = .band
+                            vm.searchBarContent = ""
+                        }
                 }
-            }
-            .pickerStyle(.segmented)
-            .padding()
-            
-            Button(action: {
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                    .stroke())
+                .padding()
+                Picker("Choose a type", selection: $vm.selectedQueryType) {
+                    ForEach(MediaType.allCases, id: \.self) {
+                        Text($0.toString())
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding()
                 
-            }) {
-                Text("Recommend Artists")
-                    .padding()
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-            }
-            
-            ForEach(inputKeywords, id: \.self) { keyword in
-                Text(keyword)
+                NavigationLink(destination: ResultsListView(vm: vm)) {
+                    Text("Recommend Artists")
+                        .padding()
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
+                
+                ForEach(vm.queryList) { query in
+                    Text(query.name)
+                }
             }
         }
         
