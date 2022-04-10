@@ -53,12 +53,17 @@ struct MainView: View {
                 .pickerStyle(.segmented)
                 .padding()
                 
-                NavigationLink(destination: ResultsListView(vm: vm)) {
-                    Text("Recommend Artists")
-                        .padding()
-                        .background(.blue)
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
+                NavigationLink(destination: ResultsListView(vm: vm), isActive: $vm.navLinkIsActive) {
+                    Button(action: {
+                        vm.fetchRecommendations()
+                        vm.navLinkIsActive = true
+                    }) {
+                        Text("Recommend Artists")
+                            .padding()
+                            .background(.blue)
+                            .foregroundColor(.white)
+                            .clipShape(Capsule())
+                    }
                 }
                 
                 ForEach(vm.queryList) { query in

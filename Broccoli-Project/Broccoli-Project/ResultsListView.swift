@@ -30,17 +30,6 @@ struct ResultsListView: View {
             
         }
         .navigationTitle("Results")
-        .task {
-            do {
-                vm.queryStatus = .loading
-                vm.recommendationList = try await TasteDiveService.fetchRecommendations(queryItems: vm.queryList)
-                vm.queryStatus = .success
-            }
-            catch {
-                vm.queryStatus = .failure
-                print(error)
-            }
-        }
     }
 }
 
