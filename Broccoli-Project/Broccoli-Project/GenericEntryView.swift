@@ -1,5 +1,5 @@
 //
-//  ArtistEntryView.swift
+//  GenericEntryView.swift
 //  Broccoli-Project
 //
 //  Created by AlecNipp on 4/10/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtistEntryView: View {
+struct GenericEntryView: View {
     let TDData: TDItem
     var body: some View {
         HStack {
@@ -28,7 +28,7 @@ struct ArtistEntryView: View {
                 }
             }
             .frame(width: 60, height: 60)
-            .clipShape(Circle())
+            .cornerRadius(5)
             
             VStack(alignment: .leading) {
                 Text(TDData.name)
@@ -46,8 +46,8 @@ struct ArtistEntryView: View {
     }
 }
 
-struct ArtistEntryView_Previews: PreviewProvider {
+struct GenericEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistEntryView(TDData: TDItem.example)
+        GenericEntryView(TDData: TDItem.example)
     }
 }

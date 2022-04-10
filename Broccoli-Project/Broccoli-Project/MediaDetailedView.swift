@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct ArtistDetailedView: View {
+struct MediaDetailedView: View {
+    let TDData: TDItem
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ArtistDetailedView_Previews: PreviewProvider {
+struct MediaDetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistDetailedView()
+        MediaDetailedView(TDData: TDItem.example)
     }
 }
