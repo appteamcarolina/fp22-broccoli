@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     private let mediaTypes = MediaType.allCases
+    private let columns = [GridItem(.adaptive(minimum: 20, maximum: 200))]
     @StateObject private var vm = MainViewModel()
     
     var body: some View {
@@ -16,12 +17,10 @@ struct MainView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                     Image(systemName: "magnifyingglass")
-                    TextField("Search Bar", text: $vm.searchBarContent)
+                    TextField("Enter search terms", text: $vm.searchBarContent)
                         .disableAutocorrection(true)
                         .onSubmit {
-                            vm.queryList.append(TDQuery(name: vm.searchBarContent, type: vm.selectedQueryType))
-                            vm.selectedQueryType = .band
-                            vm.searchBarContent = ""
+                            vm.addQueryItem()
                         }
                 }
                 .padding()
@@ -34,6 +33,23 @@ struct MainView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .padding()
+                
+                Button {
+                    vm.addQueryItem()
+                } label: {
+                    Text("Add Search Term")
+                        .padding()
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
+                
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(vm.queryList) { query in
+                        QueryItemView(item: query)
+                    }
+                }
                 .padding()
                 
                 NavigationLink(destination: ResultsListView(vm: vm), isActive: $vm.navLinkIsActive) {
@@ -49,9 +65,6 @@ struct MainView: View {
                     }
                 }
                 
-                ForEach(vm.queryList) { query in
-                    Text(query.name)
-                }
             }
         }
         

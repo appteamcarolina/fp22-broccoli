@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum MediaType: String, CaseIterable {
     case band = "band"
@@ -20,6 +21,21 @@ enum MediaType: String, CaseIterable {
         }
         else {
             return self.rawValue
+        }
+    }
+    
+    func getColor() -> Color {
+        switch self {
+        case .band:
+            return Color.blue
+        case .movie:
+            return Color.red
+        case .show:
+            return Color.indigo
+        case .book:
+            return Color.mint
+        case .author:
+            return Color.teal
         }
     }
 }

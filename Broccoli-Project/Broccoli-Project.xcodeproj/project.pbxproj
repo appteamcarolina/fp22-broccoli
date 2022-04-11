@@ -22,6 +22,7 @@
 		16FB444B2803758A0054DCB6 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB444A2803758A0054DCB6 /* MediaType.swift */; };
 		16FB444D2803761D0054DCB6 /* ArtistEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */; };
 		16FB444F280376A40054DCB6 /* GenericEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB444E280376A40054DCB6 /* GenericEntryView.swift */; };
+		16FB445128037CEC0054DCB6 /* QueryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB445028037CEC0054DCB6 /* QueryItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		16FB444A2803758A0054DCB6 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryView.swift; sourceTree = "<group>"; };
 		16FB444E280376A40054DCB6 /* GenericEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEntryView.swift; sourceTree = "<group>"; };
+		16FB445028037CEC0054DCB6 /* QueryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */,
 				16389E6C27F3B1A600A9B662 /* MainView.swift */,
+				16FB445028037CEC0054DCB6 /* QueryItemView.swift */,
 				16FB444A2803758A0054DCB6 /* MediaType.swift */,
 				16BFE78827F64FC00025939E /* ResultsListView.swift */,
 				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
@@ -242,6 +245,7 @@
 			files = (
 				16FB444D2803761D0054DCB6 /* ArtistEntryView.swift in Sources */,
 				16FB444B2803758A0054DCB6 /* MediaType.swift in Sources */,
+				16FB445128037CEC0054DCB6 /* QueryItemView.swift in Sources */,
 				16BFE78D27F64FFE0025939E /* MediaEntryView.swift in Sources */,
 				16389E6D27F3B1A600A9B662 /* MainView.swift in Sources */,
 				16BFE78927F64FC00025939E /* ResultsListView.swift in Sources */,
