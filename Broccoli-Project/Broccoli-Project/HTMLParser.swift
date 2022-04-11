@@ -15,12 +15,20 @@ public final class HTMLParser {
             let url = URL(string: wURLString)!
             let html = try String(contentsOf: url)
             let doc = try SwiftSoup.parse(html)
-            let infobox = try doc.getElementsByClass("infobox-image").first()
-            guard infobox != nil else {return nil }
-            let excerpt = try SwiftSoup.parseBodyFragment(infobox!.outerHtml())
+            guard let infobox = try doc.getElementsByClass("infobox-image").first() else {
+                print("Couldn't find the infobox")
+                return getFirstImageURLString(wURLString: wURLString)
+                
+            }
+            let excerpt = try SwiftSoup.parseBodyFragment(infobox.outerHtml())
             let images = try excerpt.select("img")
-            let first = try images.first()!.attr("src")
-            return ("https:\(first)")
+            guard let first = images.first() else {
+                print("Couldn't find the first image")
+                return nil
+                
+            }
+            let source = try first.attr("src")
+            return ("https:\(source)")
         }
         catch {
             print("Couldn't fetch image. Error: \(error.localizedDescription)")
@@ -28,5 +36,24 @@ public final class HTMLParser {
         }
         
         
+    }
+    
+    static func getFirstImageURLString(wURLString: String) -> String? {
+        do {
+            let url = URL(string: wURLString)!
+            let html = try String(contentsOf: url)
+            let doc = try SwiftSoup.parse(html)
+            guard let firstImage = try doc.select("img").first() else {
+                print("Couldn't find images")
+                return nil
+                
+            }
+            let source = try firstImage.attr("src")
+            return ("https:\(source)")
+        }
+        catch {
+            print("Couldn't fetch image. Error: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
