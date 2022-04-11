@@ -16,6 +16,7 @@ public final class TasteDiveService {
         for item in queryItems {
             queryStrings.append("\(item.type.rawValue):\(item.name)")
         }
+        print(queryStrings.joined(separator: ", "))
         return queryStrings.joined(separator: ", ")
     }
     
@@ -55,10 +56,16 @@ extension TasteDiveService {
 }
 
 
-struct TDQuery: Identifiable {
+struct TDQuery: Identifiable, Equatable {
     let name: String
     let type: MediaType
     let id = UUID()
+}
+
+extension TDQuery {
+    public static var example: TDQuery {
+        return TDQuery(name: "Pink Floyd", type: MediaType.music)
+    }
 }
 
 struct TDResponse: Decodable {

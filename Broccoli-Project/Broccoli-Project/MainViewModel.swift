@@ -11,7 +11,7 @@ import Foundation
     @Published var recommendationList: [TDItem] = []
     @Published var searchBarContent: String = ""
     @Published var queryList: [TDQuery] = [] // What the user will send to the TD API
-    @Published var selectedQueryType: MediaType = .band
+    @Published var selectedQueryType: MediaType = .music
     @Published var queryStatus = QueryStatus.idle
     @Published var navLinkIsActive = false
     
@@ -38,6 +38,23 @@ import Foundation
         queryList.append(TDQuery(name: searchBarContent, type: selectedQueryType))
         searchBarContent = ""
     }
+    
+    func removeQueryItem(_ item: TDQuery) {
+        let ind = queryList.firstIndex(of: item)!
+        queryList.remove(at: ind)
+    }
 }
 
 
+extension MainViewModel {
+    public static var example: MainViewModel {
+        let out = MainViewModel()
+        out.queryStatus = .success
+        out.queryList = [TDQuery.example]
+        var exs = [TDItem]()
+        for _ in 0...10 {
+            exs.append(TDItem.example)
+        }
+        return out
+    }
+}

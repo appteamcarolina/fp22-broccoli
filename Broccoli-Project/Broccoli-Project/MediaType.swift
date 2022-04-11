@@ -9,24 +9,24 @@ import Foundation
 import SwiftUI
 
 enum MediaType: String, CaseIterable {
-    case band = "band"
+    case music = "music"
     case movie = "movie"
     case show = "show"
     case book = "book"
     case author = "author"
     
     func toString() -> String {
-        if self == MediaType.band {
-            return "artist"
+        if self == MediaType.music {
+            return "Artist"
         }
         else {
-            return self.rawValue
+            return self.rawValue.capitalized
         }
     }
     
     func getColor() -> Color {
         switch self {
-        case .band:
+        case .music:
             return Color.blue
         case .movie:
             return Color.red

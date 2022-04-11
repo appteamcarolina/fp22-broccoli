@@ -9,31 +9,45 @@ import SwiftUI
 
 struct ArtistEntryView: View {
     let TDData: TDItem
+    let imgURLString: String?
+    init(TDData: TDItem) {
+        self.TDData = TDData
+        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
+    }
+    
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: HTMLParser.getImageURLString(wURLString: TDData.wUrl)!)) { phase in
-                switch phase {
-                case .empty:
-                    Color.purple.opacity(0.1)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                case .failure(_):
-                    Image(systemName: "exclamationmark.icloud")
-                        .resizable()
-                        .scaledToFit()
-                @unknown default:
-                    Image(systemName: "exclamationmark.icloud")
+            if imgURLString != nil {
+                AsyncImage(url: URL(string: imgURLString!)) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.purple.opacity(0.1)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    case .failure(_):
+                        Image(systemName: "exclamationmark.icloud")
+                            .resizable()
+                            .scaledToFit()
+                    @unknown default:
+                        Image(systemName: "exclamationmark.icloud")
+                    }
                 }
+                .frame(width: 60, height: 60)
+                .clipShape(Circle())
             }
-            .frame(width: 60, height: 60)
-            .clipShape(Circle())
+            else {
+                Image(systemName: "exclamationmark.icloud")
+                .frame(width: 60, height: 60)
+                .clipShape(Circle())
+            }
             
             VStack(alignment: .leading) {
                 Text(TDData.name)
                     .foregroundColor(.primary)
-                Text(TDData.type)
+                    .fixedSize()
+                Text(MediaType(rawValue: TDData.type)?.toString() ?? "Unknown")
                     .foregroundColor(.secondary)
             }
             .padding(.leading, 6)

@@ -13,7 +13,7 @@ struct ResultsListView: View {
         ScrollView {
             switch vm.queryStatus {
             case .loading:
-                Text("Loading...")
+                LoadingView()
             case .success:
                 VStack(alignment: .leading) {
                     ForEach(vm.recommendationList, id: \.name) { item in
@@ -35,6 +35,6 @@ struct ResultsListView: View {
 
 struct ResultsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsListView(vm: MainViewModel())
+        ResultsListView(vm: MainViewModel.example)
     }
 }

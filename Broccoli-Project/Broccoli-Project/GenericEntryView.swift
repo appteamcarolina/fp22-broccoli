@@ -9,26 +9,39 @@ import SwiftUI
 
 struct GenericEntryView: View {
     let TDData: TDItem
+    let imgURLString: String?
+    init(TDData: TDItem) {
+        self.TDData = TDData
+        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
+    }
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: HTMLParser.getImageURLString(wURLString: TDData.wUrl)!)) { phase in
-                switch phase {
-                case .empty:
-                    Color.purple.opacity(0.1)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                case .failure(_):
-                    Image(systemName: "exclamationmark.icloud")
-                        .resizable()
-                        .scaledToFit()
-                @unknown default:
-                    Image(systemName: "exclamationmark.icloud")
+            if imgURLString != nil {
+                AsyncImage(url: URL(string: imgURLString!)) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.purple.opacity(0.1)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    case .failure(_):
+                        Image(systemName: "exclamationmark.icloud")
+                            .resizable()
+                            .scaledToFit()
+                    @unknown default:
+                        Image(systemName: "exclamationmark.icloud")
+                    }
                 }
+                .frame(width: 60, height: 60)
+                .cornerRadius(5)
             }
-            .frame(width: 60, height: 60)
-            .cornerRadius(5)
+            else {
+                Image(systemName: "exclamationmark.icloud")
+                .frame(width: 60, height: 60)
+                .cornerRadius(5)
+            }
+            
             
             VStack(alignment: .leading) {
                 Text(TDData.name)

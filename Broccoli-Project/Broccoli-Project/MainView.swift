@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     private let mediaTypes = MediaType.allCases
-    private let columns = [GridItem(.adaptive(minimum: 20, maximum: 200))]
     @StateObject private var vm = MainViewModel()
     
     var body: some View {
@@ -29,7 +28,7 @@ struct MainView: View {
                 .padding()
                 Picker("Choose a type", selection: $vm.selectedQueryType) {
                     ForEach(MediaType.allCases, id: \.self) {
-                        Text($0.toString())
+                        Text($0.toString()).foregroundColor($0.getColor())
                     }
                 }
                 .pickerStyle(.segmented)
@@ -45,9 +44,15 @@ struct MainView: View {
                         .clipShape(Capsule())
                 }
                 
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(vm.queryList) { query in
-                        QueryItemView(item: query)
+                ScrollView(.horizontal) {
+                    HStack(spacing: 10) {
+                        ForEach(vm.queryList) { query in
+                            Button {
+                                vm.removeQueryItem(query)
+                            } label: {
+                                QueryItemView(item: query)
+                            }
+                        }
                     }
                 }
                 .padding()
@@ -57,7 +62,7 @@ struct MainView: View {
                         vm.fetchRecommendations()
                         vm.navLinkIsActive = true
                     }) {
-                        Text("Recommend Artists")
+                        Text("Recommend Media")
                             .padding()
                             .background(.blue)
                             .foregroundColor(.white)

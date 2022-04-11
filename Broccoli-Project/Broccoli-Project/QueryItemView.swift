@@ -13,20 +13,19 @@ struct QueryItemView: View {
         HStack {
             Text(item.name)
             Divider()
+                .foregroundColor(.primary)
             Text(item.type.toString())
         }
-        .font(.system(size: 10))
-        .padding(2)
+        .padding(4)
         .background(item.type.getColor())
         .foregroundColor(.white)
         .cornerRadius(3)
-        .frame(height: 15)
         .fixedSize(horizontal: true, vertical: true)
     }
 }
 
 struct QueryItemView_Previews: PreviewProvider {
     static var previews: some View {
-        QueryItemView(item: TDQuery(name: "Pink Floyd", type: .band))
+        QueryItemView(item: TDQuery(name: "Pink Floyd", type: .music))
     }
 }
