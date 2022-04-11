@@ -11,8 +11,11 @@ struct LoadingView: View {
     var body: some View {
         ZStack {
             VStack {
+                Spacer()
                 ProgressView()
                 Text("Fetching your recommendations...")
+                Spacer()
+                Spacer()
             }
         }
     }

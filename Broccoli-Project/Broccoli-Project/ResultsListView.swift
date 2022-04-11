@@ -10,11 +10,11 @@ import SwiftUI
 struct ResultsListView: View {
     @ObservedObject var vm: MainViewModel
     var body: some View {
-        ScrollView {
-            switch vm.queryStatus {
-            case .loading:
-                LoadingView()
-            case .success:
+        switch vm.queryStatus {
+        case .loading:
+            LoadingView()
+        case .success:
+            ScrollView {
                 VStack(alignment: .leading) {
                     ForEach(vm.recommendationList, id: \.name) { item in
                         MediaEntryView(TDData: item)
@@ -22,14 +22,15 @@ struct ResultsListView: View {
                     }
                 }
                 .padding()
-            case .failure:
-                Text("Failed to fetch recommendations.")
-            case .idle:
-                Text("Something went wrong")
             }
-            
+            .navigationTitle("Results")
+        case .failure:
+            Text("Failed to fetch recommendations.")
+        case .idle:
+            Text("Something went wrong")
         }
-        .navigationTitle("Results")
+        
+        
     }
 }
 
