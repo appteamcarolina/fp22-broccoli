@@ -106,18 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */,
-				16389E6C27F3B1A600A9B662 /* MainView.swift */,
-				16FB445028037CEC0054DCB6 /* QueryItemView.swift */,
-				16FB444A2803758A0054DCB6 /* MediaType.swift */,
-				16BFE78827F64FC00025939E /* ResultsListView.swift */,
-				16D2E9662803EA2A00954948 /* LoadingView.swift */,
-				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
-				16BFE78C27F64FFE0025939E /* MediaEntryView.swift */,
-				16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */,
-				16FB444E280376A40054DCB6 /* GenericEntryView.swift */,
-				16FB4445280231EA0054DCB6 /* HTMLParser.swift */,
-				16BFE78E27F650190025939E /* MediaDetailedView.swift */,
-				16BFE79027F650270025939E /* TasteDiveService.swift */,
+				16638E1328062C310058DD34 /* Views */,
+				16638E1528062C630058DD34 /* Models */,
+				16638E1428062C410058DD34 /* ViewModels */,
+				16638E1228062B990058DD34 /* Service */,
 				16389E6E27F3B1A700A9B662 /* Assets.xcassets */,
 				16389E7027F3B1A700A9B662 /* Preview Content */,
 			);
@@ -130,6 +122,46 @@
 				16389E7127F3B1A700A9B662 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		16638E1228062B990058DD34 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				16FB4445280231EA0054DCB6 /* HTMLParser.swift */,
+				16BFE79027F650270025939E /* TasteDiveService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		16638E1328062C310058DD34 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16389E6C27F3B1A600A9B662 /* MainView.swift */,
+				16FB445028037CEC0054DCB6 /* QueryItemView.swift */,
+				16BFE78827F64FC00025939E /* ResultsListView.swift */,
+				16D2E9662803EA2A00954948 /* LoadingView.swift */,
+				16BFE78C27F64FFE0025939E /* MediaEntryView.swift */,
+				16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */,
+				16FB444E280376A40054DCB6 /* GenericEntryView.swift */,
+				16BFE78E27F650190025939E /* MediaDetailedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		16638E1428062C410058DD34 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		16638E1528062C630058DD34 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16FB444A2803758A0054DCB6 /* MediaType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
