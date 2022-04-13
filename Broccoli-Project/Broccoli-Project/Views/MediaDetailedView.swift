@@ -9,8 +9,61 @@ import SwiftUI
 
 struct MediaDetailedView: View {
     let TDData: TDItem
+    let imgURLString: String?
+    init(TDData: TDItem) {
+        self.TDData = TDData
+        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
+    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geo in
+            ScrollView {
+                VStack(alignment: .leading) {
+                    if imgURLString != nil {
+                        AsyncImage(url: URL(string: imgURLString!)) { phase in
+                            switch phase {
+                            case .empty:
+                                Color.purple.opacity(0.1)
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            case .failure(_):
+                                Image(systemName: "exclamationmark.icloud")
+                                    .resizable()
+                                    .scaledToFit()
+                            @unknown default:
+                                Image(systemName: "exclamationmark.icloud")
+                            }
+                        }
+                        .frame(width: geo.size.width, height: geo.size.height*0.3)
+                        .cornerRadius(5)
+                    }
+                    else {
+                        Image(systemName: "exclamationmark.icloud")
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(5)
+                    }
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text(TDData.name)
+                            .font(.title)
+                            .foregroundColor(.primary)
+                            .italic()
+                            .bold()
+                        Text(MediaType(rawValue: TDData.type)!.toString())
+                            .foregroundColor(.secondary)
+                        Rectangle()
+                            .frame(width: geo.size.width*0.2, height: 2)
+                            .background(.secondary)
+                            .foregroundColor(.secondary)
+                        Text(TDData.wTeaser)
+                            .padding(.top)
+                    }
+                    .padding()
+                }
+            }
+        }
     }
 }
 
