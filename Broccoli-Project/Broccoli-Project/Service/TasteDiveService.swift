@@ -92,8 +92,8 @@ struct TDItem: Codable {
     let type: String
     let wTeaser: String
     let wUrl: String
-    let yUrl: String
-    let yID: String
+    let yUrl: String?
+    let yID: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "Name"
