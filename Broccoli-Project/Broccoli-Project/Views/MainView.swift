@@ -47,11 +47,7 @@ struct MainView: View {
                 ScrollView(.horizontal) {
                     HStack(spacing: 10) {
                         ForEach(vm.queryList) { query in
-                            Button {
-                                vm.removeQueryItem(query)
-                            } label: {
-                                QueryItemView(item: query)
-                            }
+                            QueryItemView(item: query, vm: vm)
                         }
                     }
                 }

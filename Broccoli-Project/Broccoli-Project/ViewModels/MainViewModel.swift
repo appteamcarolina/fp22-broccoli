@@ -55,6 +55,7 @@ extension MainViewModel {
         for _ in 0...10 {
             exs.append(TDItem.example)
         }
+        out.recommendationList = exs
         return out
     }
 }

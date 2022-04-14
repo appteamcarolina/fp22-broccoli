@@ -16,9 +16,14 @@ struct ResultsListView: View {
         case .success:
             ScrollView {
                 VStack(alignment: .leading) {
-                    ForEach(vm.recommendationList, id: \.name) { item in
-                        MediaEntryView(TDData: item)
-                        Divider()
+                    if vm.recommendationList.isEmpty {
+                        Text("No recommnedations found. Maybe check the spelling/type of all search terms?")
+                    }
+                    else {
+                        ForEach(vm.recommendationList, id: \.name) { item in
+                            MediaEntryView(TDData: item)
+                            Divider()
+                        }
                     }
                 }
                 .padding()
@@ -36,6 +41,8 @@ struct ResultsListView: View {
 
 struct ResultsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsListView(vm: MainViewModel.example)
+        NavigationView {
+            ResultsListView(vm: MainViewModel.example)
+        }
     }
 }
