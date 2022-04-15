@@ -13,6 +13,7 @@ struct LoadingView: View {
             VStack {
                 Spacer()
                 ProgressView()
+                    .padding(8)
                 Text("Fetching your recommendations...")
                 Spacer()
                 Spacer()

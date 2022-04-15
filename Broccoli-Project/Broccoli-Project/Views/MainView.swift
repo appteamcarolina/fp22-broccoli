@@ -24,15 +24,11 @@ struct MainView: View {
                 }
                 .padding()
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                    .stroke())
+                            .stroke())
                 .padding()
-                Picker("Choose a type", selection: $vm.selectedQueryType) {
-                    ForEach(MediaType.allCases, id: \.self) {
-                        Text($0.toString()).foregroundColor($0.getColor())
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding()
+                ColoredTypePicker(selectedType: $vm.selectedQueryType, list: mediaTypes)
+                    .frame(height:40)
+                    .padding()
                 
                 Button {
                     vm.addQueryItem()

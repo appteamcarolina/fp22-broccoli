@@ -46,7 +46,7 @@ struct ArtistEntryView: View {
             VStack(alignment: .leading) {
                 Text(TDData.name)
                     .foregroundColor(.primary)
-                    .fixedSize()
+                    .lineLimit(1)
                 Text(MediaType(rawValue: TDData.type)?.toString() ?? "Unknown")
                     .foregroundColor(.secondary)
             }

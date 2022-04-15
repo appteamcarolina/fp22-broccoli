@@ -17,7 +17,7 @@ struct ResultsListView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     if vm.recommendationList.isEmpty {
-                        Text("No recommnedations found. Maybe check the spelling/type of all search terms?")
+                        NoResultsView()
                     }
                     else {
                         ForEach(vm.recommendationList, id: \.name) { item in

@@ -27,15 +27,30 @@ enum MediaType: String, CaseIterable {
     func getColor() -> Color {
         switch self {
         case .music:
-            return Color.blue
-        case .movie:
             return Color.red
+        case .movie:
+            return Color.orange
         case .show:
-            return Color.indigo
+            return Color.yellow
         case .book:
             return Color.mint
         case .author:
-            return Color.teal
+            return Color.purple
+        }
+    }
+    
+    func intValue() -> Int {
+        switch self {
+        case .music:
+            return 0
+        case .movie:
+            return 1
+        case .show:
+            return 2
+        case .book:
+            return 3
+        case .author:
+            return 4
         }
     }
 }

@@ -46,6 +46,7 @@ struct GenericEntryView: View {
             VStack(alignment: .leading) {
                 Text(TDData.name)
                     .foregroundColor(.primary)
+                    .lineLimit(1)
                 Text(MediaType(rawValue: TDData.type)!.toString())
                     .foregroundColor(.secondary)
             }
