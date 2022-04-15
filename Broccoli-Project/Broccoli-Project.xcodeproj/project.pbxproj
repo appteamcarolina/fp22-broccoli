@@ -15,6 +15,7 @@
 		16638E1728065D970058DD34 /* TDServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16638E1628065D970058DD34 /* TDServiceError.swift */; };
 		16638E1D2808DFB40058DD34 /* ColoredTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16638E1C2808DFB40058DD34 /* ColoredTypePicker.swift */; };
 		16638E212808E8900058DD34 /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16638E202808E8900058DD34 /* NoResultsView.swift */; };
+		16638E242808EF990058DD34 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 16638E232808EF990058DD34 /* WrappingHStack */; };
 		16BFE78927F64FC00025939E /* ResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78827F64FC00025939E /* ResultsListView.swift */; };
 		16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78A27F64FDC0025939E /* MainViewModel.swift */; };
 		16BFE78D27F64FFE0025939E /* MediaEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE78C27F64FFE0025939E /* MediaEntryView.swift */; };
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16638E242808EF990058DD34 /* WrappingHStack in Frameworks */,
 				16FB4449280232120054DCB6 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +211,7 @@
 			name = "Broccoli-Project";
 			packageProductDependencies = (
 				16FB4448280232120054DCB6 /* SwiftSoup */,
+				16638E232808EF990058DD34 /* WrappingHStack */,
 			);
 			productName = "Broccoli-Project";
 			productReference = 16389E6727F3B1A600A9B662 /* Broccoli-Project.app */;
@@ -244,6 +247,7 @@
 			mainGroup = 16389E5E27F3B1A600A9B662;
 			packageReferences = (
 				16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				16638E222808EF990058DD34 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 16389E6827F3B1A600A9B662 /* Products */;
 			projectDirPath = "";
@@ -562,6 +566,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		16638E222808EF990058DD34 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
@@ -573,6 +585,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		16638E232808EF990058DD34 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16638E222808EF990058DD34 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
 		16FB4448280232120054DCB6 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 16FB4447280232120054DCB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;

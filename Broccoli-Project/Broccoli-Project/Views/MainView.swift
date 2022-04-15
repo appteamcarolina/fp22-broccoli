@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct MainView: View {
     private let mediaTypes = MediaType.allCases
@@ -40,12 +41,9 @@ struct MainView: View {
                         .clipShape(Capsule())
                 }
                 
-                ScrollView(.horizontal) {
-                    HStack(spacing: 10) {
-                        ForEach(vm.queryList) { query in
-                            QueryItemView(item: query, vm: vm)
-                        }
-                    }
+                WrappingHStack(vm.queryList) { query in
+                    QueryItemView(item: query, vm: vm)
+                        .padding(.vertical, 2)
                 }
                 .padding()
                 
