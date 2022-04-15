@@ -26,17 +26,17 @@ struct MediaDetailedView: View {
                             case .success(let image):
                                 image
                                     .resizable()
-                                    .scaledToFit()
+                                    .scaledToFill()
                             case .failure(_):
                                 Image(systemName: "exclamationmark.icloud")
                                     .resizable()
-                                    .scaledToFit()
+                                    .scaledToFill()
                             @unknown default:
                                 Image(systemName: "exclamationmark.icloud")
                             }
                         }
-                        .frame(width: geo.size.width, height: geo.size.height*0.3)
-                        .cornerRadius(5)
+                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .leading)
+                        .cornerRadius(0)
                     }
                     else {
                         Image(systemName: "exclamationmark.icloud")
@@ -47,7 +47,7 @@ struct MediaDetailedView: View {
                     
                     VStack(alignment: .leading) {
                         Text(TDData.name)
-                            .font(.title)
+                            .font(.custom("Times", size: 34, relativeTo: .title))
                             .foregroundColor(.primary)
                             .italic()
                             .bold()
