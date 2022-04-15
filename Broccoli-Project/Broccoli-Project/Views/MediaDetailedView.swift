@@ -35,7 +35,7 @@ struct MediaDetailedView: View {
                                 Image(systemName: "exclamationmark.icloud")
                             }
                         }
-                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .leading)
+                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
                         .cornerRadius(0)
                     }
                     else {
