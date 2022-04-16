@@ -28,13 +28,13 @@ struct GenericEntryView: View {
                         Image(systemName: "exclamationmark.icloud")
                     }
                 }
-                .frame(width: 60, height: 60, alignment: .top)
+                .frame(width: 60, height: 60, alignment: .center)
                 .cornerRadius(5)
             }
             else {
                 TasteyColors.tongueColor.opacity(0.5)
-                .frame(width: 60, height: 60)
-                .cornerRadius(5)
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(5)
             }
             
             
