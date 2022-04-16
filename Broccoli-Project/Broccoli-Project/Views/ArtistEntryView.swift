@@ -34,7 +34,7 @@ struct ArtistEntryView: View {
                         Image(systemName: "exclamationmark.icloud")
                     }
                 }
-                .frame(width: 60, height: 60)
+                .frame(width: 60, height: 60, alignment: .top)
                 .clipShape(Circle())
             }
             else {

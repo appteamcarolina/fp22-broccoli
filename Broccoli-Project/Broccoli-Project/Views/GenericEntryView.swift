@@ -33,7 +33,7 @@ struct GenericEntryView: View {
                         Image(systemName: "exclamationmark.icloud")
                     }
                 }
-                .frame(width: 60, height: 60)
+                .frame(width: 60, height: 60, alignment: .top)
                 .cornerRadius(5)
             }
             else {
