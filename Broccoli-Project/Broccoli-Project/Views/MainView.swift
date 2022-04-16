@@ -15,6 +15,10 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
+                Image("tastey-logo-cropped")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 50)
                 HStack {
                     Image(systemName: "magnifyingglass")
                     TextField("Enter search terms", text: $vm.searchBarContent)
@@ -61,6 +65,7 @@ struct MainView: View {
                 }
                 
             }
+            
         }
         
     }
