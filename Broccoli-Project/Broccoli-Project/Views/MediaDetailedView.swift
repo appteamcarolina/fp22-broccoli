@@ -8,18 +8,13 @@
 import SwiftUI
 
 struct MediaDetailedView: View {
-    let TDData: TDItem
-    let imgURLString: String?
-    init(TDData: TDItem) {
-        self.TDData = TDData
-        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
-    }
+    let vm: EntryViewModel
     var body: some View {
         GeometryReader { geo in
             ScrollView {
                 VStack(alignment: .leading) {
-                    if imgURLString != nil {
-                        AsyncImage(url: URL(string: imgURLString!)) { phase in
+                    if vm.imgURLString != nil {
+                        AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
                             switch phase {
                             case .empty:
                                 Color.purple.opacity(0.1)
@@ -46,18 +41,18 @@ struct MediaDetailedView: View {
                     
                     
                     VStack(alignment: .leading) {
-                        Text(TDData.name)
+                        Text(vm.data.name)
                             .font(.custom("Times", size: 34, relativeTo: .title))
                             .foregroundColor(.primary)
                             .italic()
                             .bold()
-                        Text(MediaType(rawValue: TDData.type)!.toString())
+                        Text(MediaType(rawValue: vm.data.type)!.toString())
                             .foregroundColor(.secondary)
                         Rectangle()
                             .frame(width: geo.size.width*0.2, height: 2)
                             .background(.secondary)
                             .foregroundColor(.secondary)
-                        Text(TDData.wTeaser)
+                        Text(vm.data.wTeaser)
                             .padding(.top)
                     }
                     .padding()
@@ -69,6 +64,6 @@ struct MediaDetailedView: View {
 
 struct MediaDetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaDetailedView(TDData: TDItem.example)
+        MediaDetailedView(vm: EntryViewModel(data: TDItem.example))
     }
 }

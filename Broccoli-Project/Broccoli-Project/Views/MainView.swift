@@ -9,7 +9,6 @@ import SwiftUI
 import WrappingHStack
 
 struct MainView: View {
-    let tongueColor: Color = Color(red: 216.0 / 256, green: 137.0 / 256, blue: 223.0 / 256)
     private let mediaTypes = MediaType.allCases
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var vm = MainViewModel()
@@ -42,7 +41,7 @@ struct MainView: View {
                 } label: {
                     Text("Add Search Term")
                         .padding()
-                        .background(tongueColor)
+                        .background(TasteyColors.tongueColor)
                         .foregroundColor(.primary)
                         .clipShape(Capsule())
                 }
@@ -60,7 +59,7 @@ struct MainView: View {
                     }) {
                         Text("Recommend Media")
                             .padding()
-                            .background(tongueColor)
+                            .background(TasteyColors.tongueColor)
                             .foregroundColor(.primary)
                             .clipShape(Capsule())
                     }

@@ -21,7 +21,7 @@ struct ResultsListView: View {
                     }
                     else {
                         ForEach(vm.recommendationList, id: \.name) { item in
-                            MediaEntryView(TDData: item)
+                            MediaEntryView(vm: EntryViewModel(data: item))
                             Divider()
                         }
                     }

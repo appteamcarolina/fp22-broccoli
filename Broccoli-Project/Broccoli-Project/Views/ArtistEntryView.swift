@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct ArtistEntryView: View {
-    let TDData: TDItem
-    let imgURLString: String?
-    init(TDData: TDItem) {
-        self.TDData = TDData
-        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
-    }
-    
+    @StateObject var vm: EntryViewModel    
     var body: some View {
         HStack {
-            if imgURLString != nil {
-                AsyncImage(url: URL(string: imgURLString!)) { phase in
+            if vm.imgURLString != nil {
+                AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
                     switch phase {
                     case .empty:
-                        Color.purple.opacity(0.1)
+                        TasteyColors.tongueColor.opacity(0.5)
                     case .success(let image):
                         image
                             .resizable()
@@ -38,16 +32,16 @@ struct ArtistEntryView: View {
                 .clipShape(Circle())
             }
             else {
-                Image(systemName: "exclamationmark.icloud")
+                TasteyColors.tongueColor.opacity(0.5)
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
             }
             
             VStack(alignment: .leading) {
-                Text(TDData.name)
+                Text(vm.data.name)
                     .foregroundColor(.primary)
                     .lineLimit(1)
-                Text(MediaType(rawValue: TDData.type)?.toString() ?? "Unknown")
+                Text(MediaType(rawValue: vm.data.type)?.toString() ?? "Unknown")
                     .foregroundColor(.secondary)
             }
             .padding(.leading, 6)
@@ -62,6 +56,6 @@ struct ArtistEntryView: View {
 
 struct ArtistEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistEntryView(TDData: TDItem.example)
+        ArtistEntryView(vm: EntryViewModel(data: TDItem.example))
     }
 }

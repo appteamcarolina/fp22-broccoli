@@ -8,19 +8,14 @@
 import SwiftUI
 
 struct GenericEntryView: View {
-    let TDData: TDItem
-    let imgURLString: String?
-    init(TDData: TDItem) {
-        self.TDData = TDData
-        imgURLString = HTMLParser.getImageURLString(wURLString: TDData.wUrl)
-    }
+    @StateObject var vm: EntryViewModel
     var body: some View {
         HStack {
-            if imgURLString != nil {
-                AsyncImage(url: URL(string: imgURLString!)) { phase in
+            if vm.imgURLString != nil {
+                AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
                     switch phase {
                     case .empty:
-                        Color.purple.opacity(0.1)
+                        TasteyColors.tongueColor.opacity(0.5)
                     case .success(let image):
                         image
                             .resizable()
@@ -37,17 +32,17 @@ struct GenericEntryView: View {
                 .cornerRadius(5)
             }
             else {
-                Image(systemName: "exclamationmark.icloud")
+                TasteyColors.tongueColor.opacity(0.5)
                 .frame(width: 60, height: 60)
                 .cornerRadius(5)
             }
             
             
             VStack(alignment: .leading) {
-                Text(TDData.name)
+                Text(vm.data.name)
                     .foregroundColor(.primary)
                     .lineLimit(1)
-                Text(MediaType(rawValue: TDData.type)!.toString())
+                Text(MediaType(rawValue: vm.data.type)!.toString())
                     .foregroundColor(.secondary)
             }
             .padding(.leading, 6)
@@ -62,6 +57,6 @@ struct GenericEntryView: View {
 
 struct GenericEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        GenericEntryView(TDData: TDItem.example)
+        GenericEntryView(vm: EntryViewModel(data: TDItem.example))
     }
 }

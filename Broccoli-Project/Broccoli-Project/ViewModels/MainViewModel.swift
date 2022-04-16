@@ -27,6 +27,7 @@ import Foundation
         Task {
             do {
                 recommendationList = try await TasteDiveService.fetchRecommendations(queryItems: queryList)
+                print("Done, changing to successful status!")
                 queryStatus = .success
             }
             catch {

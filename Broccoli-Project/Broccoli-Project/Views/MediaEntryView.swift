@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct MediaEntryView: View {
-    let TDData: TDItem
+    let vm: EntryViewModel
     var body: some View {
-        NavigationLink(destination: MediaDetailedView(TDData: TDData)) {
-            switch TDData.type {
+        NavigationLink(destination: MediaDetailedView(vm: vm)) {
+            switch vm.data.type {
             case "music":
-                ArtistEntryView(TDData: TDData)
+                ArtistEntryView(vm: vm)
             default:
-                GenericEntryView(TDData: TDData)
+                GenericEntryView(vm: vm)
+            }
+        }
+        .task {
+            DispatchQueue.global().async {
+                vm.fetchImageURL()
             }
         }
         
@@ -24,6 +29,6 @@ struct MediaEntryView: View {
 
 struct MediaEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaEntryView(TDData: TDItem.example)
+        MediaEntryView(vm: EntryViewModel(data: TDItem.example))
     }
 }
