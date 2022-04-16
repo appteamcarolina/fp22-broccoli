@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MediaDetailedView: View {
     let vm: EntryViewModel
+    @State var teaserIsCollapsed = true
+    @State var teaserLineLimit: Int? = 10
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -35,8 +37,8 @@ struct MediaDetailedView: View {
                     }
                     else {
                         Image(systemName: "exclamationmark.icloud")
-                        .frame(width: 60, height: 60)
-                        .cornerRadius(5)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(5)
                     }
                     
                     
@@ -52,8 +54,31 @@ struct MediaDetailedView: View {
                             .frame(width: geo.size.width*0.2, height: 2)
                             .background(.secondary)
                             .foregroundColor(.secondary)
-                        Text(vm.data.wTeaser)
-                            .padding(.top)
+                        Button {
+                            withAnimation {
+                                teaserIsCollapsed.toggle()
+                            }
+                        } label: {
+                            VStack(alignment:.leading) {
+                                HStack {
+                                    Text("Summary")
+                                        .bold()
+                                        .padding(.bottom, 3)
+                                        .font(.title3)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .rotationEffect(.degrees(teaserIsCollapsed ? 0 : 90))
+                                }
+                                Text(vm.data.wTeaser)
+                                    .lineLimit(teaserIsCollapsed ? 10 : nil)
+                                
+                            }
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        .buttonStyle(.plain)
+                        
                     }
                     .padding()
                 }
