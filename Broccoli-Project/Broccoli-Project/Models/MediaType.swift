@@ -35,7 +35,7 @@ enum MediaType: String, CaseIterable {
         case .book:
             return Color.mint
         case .author:
-            return Color.purple
+            return Color.green
         }
     }
     

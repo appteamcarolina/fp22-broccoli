@@ -9,13 +9,15 @@ import SwiftUI
 import WrappingHStack
 
 struct MainView: View {
+    let tongueColor: Color = Color(red: 216.0 / 256, green: 137.0 / 256, blue: 223.0 / 256)
     private let mediaTypes = MediaType.allCases
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var vm = MainViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                Image("tastey-logo-cropped")
+                Image(colorScheme == .dark ? "tastey-dark-mode" : "tastey-logo")
                     .resizable()
                     .scaledToFit()
                     .padding(.horizontal, 50)
@@ -40,8 +42,8 @@ struct MainView: View {
                 } label: {
                     Text("Add Search Term")
                         .padding()
-                        .background(.blue)
-                        .foregroundColor(.white)
+                        .background(tongueColor)
+                        .foregroundColor(.primary)
                         .clipShape(Capsule())
                 }
                 
@@ -58,8 +60,8 @@ struct MainView: View {
                     }) {
                         Text("Recommend Media")
                             .padding()
-                            .background(.blue)
-                            .foregroundColor(.white)
+                            .background(tongueColor)
+                            .foregroundColor(.primary)
                             .clipShape(Capsule())
                     }
                 }
