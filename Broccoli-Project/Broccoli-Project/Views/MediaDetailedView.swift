@@ -48,8 +48,20 @@ struct MediaDetailedView: View {
                             .foregroundColor(.primary)
                             .italic()
                             .bold()
-                        Text(MediaType(rawValue: vm.data.type)!.toString())
-                            .foregroundColor(.secondary)
+                        HStack {
+                            Text(MediaType(rawValue: vm.data.type)!.toString())
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Button {
+                                if !vm.isInWaitlist {
+                                    vm.addToWatchlist()
+                                } else {
+                                    vm.deleteFromWatchlist()
+                                }
+                            } label: {
+                                Image(systemName: vm.isInWaitlist ? "star.fill" : "star")
+                            }
+                        }
                         Rectangle()
                             .frame(width: geo.size.width*0.2, height: 2)
                             .background(.secondary)

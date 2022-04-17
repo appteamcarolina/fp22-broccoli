@@ -64,9 +64,14 @@ struct MainView: View {
                             .clipShape(Capsule())
                     }
                 }
-                
             }
-            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: WatchListView(vm: WatchlistViewModel())) {
+                        Text("Watchlist")
+                    }
+                }
+            }
         }
         
     }

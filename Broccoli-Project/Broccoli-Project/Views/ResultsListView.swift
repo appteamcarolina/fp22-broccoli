@@ -34,8 +34,6 @@ struct ResultsListView: View {
         case .idle:
             Text("Something went wrong")
         }
-        
-        
     }
 }
 

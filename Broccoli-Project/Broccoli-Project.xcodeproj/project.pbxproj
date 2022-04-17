@@ -30,6 +30,11 @@
 		16FB444D2803761D0054DCB6 /* ArtistEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */; };
 		16FB444F280376A40054DCB6 /* GenericEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB444E280376A40054DCB6 /* GenericEntryView.swift */; };
 		16FB445128037CEC0054DCB6 /* QueryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB445028037CEC0054DCB6 /* QueryItemView.swift */; };
+		FE2E7866280B97C80099B6DD /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE2E7864280B97C80099B6DD /* DataModel.xcdatamodeld */; };
+		FE2E7868280B98F10099B6DD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E7867280B98F10099B6DD /* CoreDataManager.swift */; };
+		FE2E786A280B9F640099B6DD /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E7869280B9F640099B6DD /* WatchListView.swift */; };
+		FE2E786C280BA2050099B6DD /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E786B280BA2050099B6DD /* WatchlistViewModel.swift */; };
+		FE2E786E280BAFF00099B6DD /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E786D280BAFF00099B6DD /* EntryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryView.swift; sourceTree = "<group>"; };
 		16FB444E280376A40054DCB6 /* GenericEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEntryView.swift; sourceTree = "<group>"; };
 		16FB445028037CEC0054DCB6 /* QueryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemView.swift; sourceTree = "<group>"; };
+		FE2E7865280B97C80099B6DD /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FE2E7867280B98F10099B6DD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE2E7869280B9F640099B6DD /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
+		FE2E786B280BA2050099B6DD /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
+		FE2E786D280BAFF00099B6DD /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 		16389E6927F3B1A600A9B662 /* Broccoli-Project */ = {
 			isa = PBXGroup;
 			children = (
+				FE2E7864280B97C80099B6DD /* DataModel.xcdatamodeld */,
 				16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */,
 				16638E1628065D970058DD34 /* TDServiceError.swift */,
 				16638E25280B2AAD0058DD34 /* TasteyColors.swift */,
@@ -143,6 +154,7 @@
 			children = (
 				16FB4445280231EA0054DCB6 /* HTMLParser.swift */,
 				16BFE79027F650270025939E /* TasteDiveService.swift */,
+				FE2E7867280B98F10099B6DD /* CoreDataManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -160,6 +172,7 @@
 				16FB444C2803761D0054DCB6 /* ArtistEntryView.swift */,
 				16FB444E280376A40054DCB6 /* GenericEntryView.swift */,
 				16BFE78E27F650190025939E /* MediaDetailedView.swift */,
+				FE2E7869280B9F640099B6DD /* WatchListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +182,7 @@
 			children = (
 				16638E27280B2C7A0058DD34 /* EntryViewModel.swift */,
 				16BFE78A27F64FDC0025939E /* MainViewModel.swift */,
+				FE2E786B280BA2050099B6DD /* WatchlistViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				16FB444A2803758A0054DCB6 /* MediaType.swift */,
+				FE2E786D280BAFF00099B6DD /* EntryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +314,8 @@
 			files = (
 				16638E1728065D970058DD34 /* TDServiceError.swift in Sources */,
 				16FB444D2803761D0054DCB6 /* ArtistEntryView.swift in Sources */,
+				FE2E786C280BA2050099B6DD /* WatchlistViewModel.swift in Sources */,
+				FE2E786E280BAFF00099B6DD /* EntryModel.swift in Sources */,
 				16FB444B2803758A0054DCB6 /* MediaType.swift in Sources */,
 				16FB445128037CEC0054DCB6 /* QueryItemView.swift in Sources */,
 				16BFE78D27F64FFE0025939E /* MediaEntryView.swift in Sources */,
@@ -311,9 +328,12 @@
 				16BFE79127F650270025939E /* TasteDiveService.swift in Sources */,
 				16638E1D2808DFB40058DD34 /* ColoredTypePicker.swift in Sources */,
 				16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */,
+				FE2E7866280B97C80099B6DD /* DataModel.xcdatamodeld in Sources */,
 				16FB4446280231EA0054DCB6 /* HTMLParser.swift in Sources */,
+				FE2E786A280B9F640099B6DD /* WatchListView.swift in Sources */,
 				16638E28280B2C7A0058DD34 /* EntryViewModel.swift in Sources */,
 				16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */,
+				FE2E7868280B98F10099B6DD /* CoreDataManager.swift in Sources */,
 				16BFE78F27F650190025939E /* MediaDetailedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +624,19 @@
 			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FE2E7864280B97C80099B6DD /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE2E7865280B97C80099B6DD /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FE2E7865280B97C80099B6DD /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 16389E5F27F3B1A600A9B662 /* Project object */;
 }

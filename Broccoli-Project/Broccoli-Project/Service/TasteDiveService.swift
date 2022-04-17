@@ -41,7 +41,7 @@ public final class TasteDiveService {
         }
         
         let decodedResponse = try decoder.decode(TDResponse.self, from: data)
-        print(decodedResponse)
+        //print(decodedResponse)
         return decodedResponse.data.results
     }
 }

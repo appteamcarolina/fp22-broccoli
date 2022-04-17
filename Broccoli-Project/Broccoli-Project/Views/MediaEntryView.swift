@@ -21,6 +21,9 @@ struct MediaEntryView: View {
         .task {
             DispatchQueue.global().async {
                 vm.fetchImageURL()
+                DispatchQueue.main.async {
+                    
+                }
             }
         }
         
