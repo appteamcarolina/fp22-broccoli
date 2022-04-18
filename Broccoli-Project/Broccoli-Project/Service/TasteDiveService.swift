@@ -87,7 +87,7 @@ struct TDSimilarData: Decodable {
 }
 
 
-struct TDItem: Codable {
+struct TDItem: Codable, Equatable {
     let name: String
     let type: String
     let wTeaser: String
