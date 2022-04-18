@@ -8,6 +8,9 @@
 import Foundation
 import SwiftSoup
 
+/**
+This class is responsible for parsing the HTML of Wikipedia and finding image profiles for the media items returned by the TasteDive search.
+ */
 public final class HTMLParser {
     
     /**
