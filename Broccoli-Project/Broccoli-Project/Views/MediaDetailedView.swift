@@ -11,7 +11,7 @@ struct MediaDetailedView: View {
     @ObservedObject var vm: EntryViewModel
     @State var teaserIsCollapsed = true
     @State var teaserLineLimit: Int? = 10
-    @State var isInWaitlist = false
+    @State var isInWatchList = false
     
     var body: some View {
         GeometryReader { geo in
@@ -56,17 +56,17 @@ struct MediaDetailedView: View {
                             Spacer()
                             Button {
                                 withAnimation {
-                                    if !(isInWaitlist) {
+                                    if !(vm.isInWatchlist()) {
                                         vm.addToWatchlist()
-                                        isInWaitlist = true
+                                        isInWatchList = true
                                     } else {
                                         vm.deleteFromWatchlist()
-                                        isInWaitlist = false
+                                        isInWatchList = false
                                     }
                                 }
                                 
                             } label: {
-                                Image(systemName: isInWaitlist ? "bookmark.fill" : "bookmark")
+                                Image(systemName: isInWatchList ? "bookmark.fill" : "bookmark")
                             }
                         }
                         Rectangle()
@@ -101,6 +101,9 @@ struct MediaDetailedView: View {
                     }
                     .padding()
                 }
+            }
+            .onAppear {
+                isInWatchList = vm.isInWatchlist()
             }
         }
     }
