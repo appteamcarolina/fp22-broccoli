@@ -13,6 +13,16 @@ import CoreData
     @Published var mediaType: MediaType = .music
     @Published var entryList : [EntryModel] = []
     
+    @Published var curType: String?
+    @Published var curName: String?
+    @Published var curYID: String?
+    @Published var curWTeaser: String?
+    @Published var curWUrl: String?
+    @Published var curYUrl: String?
+    @Published var curImageUrl: String?
+    
+    var curEntryModel: EntryModel?
+    
     init() {
         fetchAllEntries()
     }
@@ -27,26 +37,47 @@ import CoreData
         }
     }
     
-    func addToWatchlist(entry: EntryModel) {
-        let existingEntry = CoreDataManager.shared.getEntryDataBy(id: entry.id)
+    func updateCurEntry(entry: EntryModel) {
+        curType = entry.type
+        curName = entry.name
+        curYID = entry.yID
+        curWTeaser = entry.wTeaser
+        curWUrl = entry.wUrl
+        curYUrl = entry.yUrl
+        curImageUrl = entry.imageUrl
+        curEntryModel = entry
+    }
+    
+    func addToWatchlist() {
+        guard let curEntryModel = curEntryModel else {
+            return
+        }
+        
+        let existingEntry = CoreDataManager.shared.getEntryDataBy(id: curEntryModel.id)
         if let _ = existingEntry {
             return
         }
         
         let entryData = EntryData(context: CoreDataManager.shared.viewContext)
-        entryData.type = entry.type
-        entryData.name = entry.name
-        entryData.yID = entry.yID
-        entryData.wTeaser = entry.wTeaser
-        entryData.wUrl = entry.wUrl
-        entryData.yUrl = entry.yUrl
-        entryData.imageUrl = entry.imageUrl
+        entryData.type = curType
+        entryData.name = curName
+        entryData.yID = curYID
+        entryData.wTeaser = curWTeaser
+        entryData.wUrl = curWUrl
+        entryData.yUrl = curYUrl
+        entryData.imageUrl = curImageUrl
         CoreDataManager.shared.save()
+        self.curEntryModel = EntryModel(entryData: entryData)
+        
         fetchAllEntries()
     }
     
-    func delete(entry: EntryModel) {
-        let existingEntry = CoreDataManager.shared.getEntryDataBy(id: entry.id)
+    func deleteFromWatchList() {
+        guard let curEntryModel = curEntryModel else {
+            return
+        }
+
+        let existingEntry = CoreDataManager.shared.getEntryDataBy(id: curEntryModel.id)
         if let existingEntry = existingEntry {
             CoreDataManager.shared.delete(entry: existingEntry)
             fetchAllEntries()

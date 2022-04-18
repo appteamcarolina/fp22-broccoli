@@ -18,7 +18,7 @@ struct WatchListDetailView: View {
         GeometryReader { geo in
             ScrollView {
                 VStack(alignment: .leading) {
-                    AsyncImage(url: URL(string: entry.imageUrl)) { phase in
+                    AsyncImage(url: URL(string: vm.curImageUrl ?? "")) { phase in
                         switch phase {
                         case .empty:
                             Color.purple.opacity(0.1)
@@ -39,20 +39,22 @@ struct WatchListDetailView: View {
                     
                     
                     VStack(alignment: .leading) {
-                        Text(entry.name)
+                        Text(vm.curName ?? "")
                             .font(.custom("Times", size: 34, relativeTo: .title))
                             .foregroundColor(.primary)
                             .italic()
                             .bold()
                         HStack {
-                            Text(entry.type)
+                            Text(vm.curType ?? "")
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
                                 if !(isInWatchlist) {
-                                    vm.addToWatchlist(entry: entry)
+                                    vm.addToWatchlist()
+                                    isInWatchlist = true
                                 } else {
-                                    vm.delete(entry: entry)
+                                    vm.deleteFromWatchList()
+                                    isInWatchlist = false
                                 }
                             } label: {
                                 Image(systemName: isInWatchlist ? "star.fill" : "star")
@@ -77,7 +79,7 @@ struct WatchListDetailView: View {
                                     Image(systemName: "chevron.right")
                                         .rotationEffect(.degrees(teaserIsCollapsed ? 0 : 90))
                                 }
-                                Text(entry.wTeaser ?? "")
+                                Text(vm.curWTeaser ?? "")
                                     .lineLimit(teaserIsCollapsed ? 10 : nil)
                                 
                             }
@@ -91,6 +93,9 @@ struct WatchListDetailView: View {
                     .padding()
                 }
             }
+        }
+        .onAppear {
+            vm.updateCurEntry(entry: entry)
         }
     }
 }
