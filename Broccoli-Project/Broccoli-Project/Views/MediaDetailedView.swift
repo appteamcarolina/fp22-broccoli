@@ -55,15 +55,18 @@ struct MediaDetailedView: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
-                                if !(isInWaitlist) {
-                                    vm.addToWatchlist()
-                                    isInWaitlist = true
-                                } else {
-                                    vm.deleteFromWatchlist()
-                                    isInWaitlist = false
+                                withAnimation {
+                                    if !(isInWaitlist) {
+                                        vm.addToWatchlist()
+                                        isInWaitlist = true
+                                    } else {
+                                        vm.deleteFromWatchlist()
+                                        isInWaitlist = false
+                                    }
                                 }
+                                
                             } label: {
-                                Image(systemName: isInWaitlist ? "bookmark.fill" : "bookmark.slash")
+                                Image(systemName: isInWaitlist ? "bookmark.fill" : "bookmark")
                             }
                         }
                         Rectangle()
