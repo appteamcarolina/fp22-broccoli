@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The main view model of the application. This object is directly observed by the MainView and the ResultsView.
 @MainActor class MainViewModel: ObservableObject {
     @Published var recommendationList: [TDItem] = []
     @Published var searchBarContent: String = ""

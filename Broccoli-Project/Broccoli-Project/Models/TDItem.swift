@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A structure that stores a media item and its associated data that is returned from a TasteDive query. For example, a there might be a TDItem with `name = "Rush"` that contains all the data
+/// for Rush, the band. These are exclusively constructed using the JSON decoder in the TasteDiveService, which obtains the data using its fetch methods.
 struct TDItem: Codable, Equatable {
     let name: String
     let type: String

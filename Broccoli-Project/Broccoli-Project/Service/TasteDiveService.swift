@@ -57,6 +57,9 @@ extension TasteDiveService {
 }
 
 
+
+
+/// The initial TasteDive API response. Not used anywhere outside of the decoding context.
 struct TDResponse: Decodable {
     let data: TDSimilarData
     
@@ -65,6 +68,7 @@ struct TDResponse: Decodable {
     }
 }
 
+/// An intermediate struct in the decoding of a TasteDive API response. Not used anywhere outside of the decoding context.
 struct TDSimilarData: Decodable {
     
     let results: [TDItem]
