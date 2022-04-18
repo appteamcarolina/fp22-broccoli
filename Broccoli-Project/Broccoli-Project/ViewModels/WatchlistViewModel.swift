@@ -68,8 +68,6 @@ import CoreData
         entryData.imageUrl = curImageUrl
         CoreDataManager.shared.save()
         self.curEntryModel = EntryModel(entryData: entryData)
-        
-        fetchAllEntries()
     }
     
     func deleteFromWatchList() {
@@ -80,7 +78,6 @@ import CoreData
         let existingEntry = CoreDataManager.shared.getEntryDataBy(id: curEntryModel.id)
         if let existingEntry = existingEntry {
             CoreDataManager.shared.delete(entry: existingEntry)
-            fetchAllEntries()
         }
     }
 }

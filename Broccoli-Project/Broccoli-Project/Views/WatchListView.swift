@@ -10,23 +10,28 @@ import SwiftUI
 struct WatchListView: View {
     @ObservedObject var vm: WatchlistViewModel
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                if vm.entryList.isEmpty {
-                    NoResultsView()
-                }
-                else {
-                    ForEach(vm.entryList, id: \.id) { item in
-                        NavigationLink(destination: WatchListDetailView(entry: item, vm: vm)) {
-                            WatchListGenericEntryView(entry: item)
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    if vm.entryList.isEmpty {
+                        NoResultsView()
+                    }
+                    else {
+                        ForEach(vm.entryList, id: \.id) { item in
+                            NavigationLink(destination: WatchListDetailView(entry: item, vm: vm)) {
+                                WatchListGenericEntryView(entry: item)
+                            }
+                            Divider()
                         }
-                        Divider()
                     }
                 }
+                .padding()
             }
-            .padding()
+            .onAppear {
+                vm.fetchAllEntries()
+            }
+            .navigationTitle("Saved")
         }
-        .navigationTitle("Watchlist")
     }
 }
 

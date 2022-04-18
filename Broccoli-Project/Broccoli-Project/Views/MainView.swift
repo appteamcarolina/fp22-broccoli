@@ -65,15 +65,7 @@ struct MainView: View {
                     }
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: WatchListView(vm: WatchlistViewModel())) {
-                        Text("Watchlist")
-                    }
-                }
-            }
         }
-        
     }
 }
 
