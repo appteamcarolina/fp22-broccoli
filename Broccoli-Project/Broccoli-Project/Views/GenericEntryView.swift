@@ -32,7 +32,10 @@ struct GenericEntryView: View {
                 .cornerRadius(5)
             }
             else {
-                TasteyColors.tongueColor.opacity(0.5)
+                ZStack {
+                    ProgressView()
+                    Color.gray.opacity(0.2)
+                }
                     .frame(width: 60, height: 60)
                     .cornerRadius(5)
             }
