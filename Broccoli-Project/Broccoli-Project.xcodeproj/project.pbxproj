@@ -35,6 +35,8 @@
 		FE2E786A280B9F640099B6DD /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E7869280B9F640099B6DD /* WatchListView.swift */; };
 		FE2E786C280BA2050099B6DD /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E786B280BA2050099B6DD /* WatchlistViewModel.swift */; };
 		FE2E786E280BAFF00099B6DD /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E786D280BAFF00099B6DD /* EntryModel.swift */; };
+		FEC37C01280CF66400610BE1 /* WatchListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC37C00280CF66400610BE1 /* WatchListDetailView.swift */; };
+		FEC37C07280CFD7D00610BE1 /* WatchListGenericEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC37C06280CFD7D00610BE1 /* WatchListGenericEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		FE2E7869280B9F640099B6DD /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		FE2E786B280BA2050099B6DD /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		FE2E786D280BAFF00099B6DD /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
+		FEC37C00280CF66400610BE1 /* WatchListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListDetailView.swift; sourceTree = "<group>"; };
+		FEC37C06280CFD7D00610BE1 /* WatchListGenericEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListGenericEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 				16FB444E280376A40054DCB6 /* GenericEntryView.swift */,
 				16BFE78E27F650190025939E /* MediaDetailedView.swift */,
 				FE2E7869280B9F640099B6DD /* WatchListView.swift */,
+				FEC37C06280CFD7D00610BE1 /* WatchListGenericEntryView.swift */,
+				FEC37C00280CF66400610BE1 /* WatchListDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,9 +336,11 @@
 				16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */,
 				FE2E7866280B97C80099B6DD /* DataModel.xcdatamodeld in Sources */,
 				16FB4446280231EA0054DCB6 /* HTMLParser.swift in Sources */,
+				FEC37C07280CFD7D00610BE1 /* WatchListGenericEntryView.swift in Sources */,
 				FE2E786A280B9F640099B6DD /* WatchListView.swift in Sources */,
 				16638E28280B2C7A0058DD34 /* EntryViewModel.swift in Sources */,
 				16BFE78B27F64FDC0025939E /* MainViewModel.swift in Sources */,
+				FEC37C01280CF66400610BE1 /* WatchListDetailView.swift in Sources */,
 				FE2E7868280B98F10099B6DD /* CoreDataManager.swift in Sources */,
 				16BFE78F27F650190025939E /* MediaDetailedView.swift in Sources */,
 			);

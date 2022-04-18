@@ -1,67 +1,61 @@
 //
-//  ArtistDetailedView.swift
+//  WatchListDetailView.swift
 //  Broccoli-Project
 //
-//  Created by AlecNipp on 3/31/22.
+//  Created by peter wi on 4/17/22.
 //
 
 import SwiftUI
 
-struct MediaDetailedView: View {
-    let vm: EntryViewModel
+struct WatchListDetailView: View {
+    let entry: EntryModel
+    @ObservedObject var vm: WatchlistViewModel
     @State var teaserIsCollapsed = true
     @State var teaserLineLimit: Int? = 10
+    @State var isInWatchlist = true
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView {
                 VStack(alignment: .leading) {
-                    if vm.imgURLString != nil {
-                        AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
-                            switch phase {
-                            case .empty:
-                                Color.purple.opacity(0.1)
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            case .failure(_):
-                                Image(systemName: "exclamationmark.icloud")
-                                    .resizable()
-                                    .scaledToFill()
-                            @unknown default:
-                                Image(systemName: "exclamationmark.icloud")
-                            }
+                    AsyncImage(url: URL(string: entry.imageUrl ?? "")) { phase in
+                        switch phase {
+                        case .empty:
+                            Color.purple.opacity(0.1)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        case .failure(_):
+                            Image(systemName: "exclamationmark.icloud")
+                                .resizable()
+                                .scaledToFill()
+                        @unknown default:
+                            Image(systemName: "exclamationmark.icloud")
                         }
-                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
-                        .cornerRadius(0)
                     }
-                    else {
-                        Image(systemName: "exclamationmark.icloud")
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(5)
-                    }
+                    .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                    .cornerRadius(0)
                     
                     
                     VStack(alignment: .leading) {
-                        Text(vm.data.name)
+                        Text(entry.name)
                             .font(.custom("Times", size: 34, relativeTo: .title))
                             .foregroundColor(.primary)
                             .italic()
                             .bold()
                         HStack {
-                            Text(MediaType(rawValue: vm.data.type)!.toString())
+                            Text(entry.type)
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
-                                if !(vm.isInWaitlist ?? true) {
-                                    vm.addToWatchlist()
-                                    vm.isInWaitlist = true
+                                if !(isInWatchlist) {
+                                    vm.addToWatchlist(entry: entry)
                                 } else {
-                                    vm.deleteFromWatchlist()
-                                    vm.isInWaitlist = false
+                                    vm.delete(entry: entry)
                                 }
                             } label: {
-                                Image(systemName: vm.isInWaitlist ?? false ? "star.fill" : "star")
+                                Image(systemName: isInWatchlist ? "star.fill" : "star")
                             }
                         }
                         Rectangle()
@@ -83,7 +77,7 @@ struct MediaDetailedView: View {
                                     Image(systemName: "chevron.right")
                                         .rotationEffect(.degrees(teaserIsCollapsed ? 0 : 90))
                                 }
-                                Text(vm.data.wTeaser)
+                                Text(entry.wTeaser ?? "")
                                     .lineLimit(teaserIsCollapsed ? 10 : nil)
                                 
                             }
@@ -100,9 +94,10 @@ struct MediaDetailedView: View {
         }
     }
 }
-
-struct MediaDetailedView_Previews: PreviewProvider {
-    static var previews: some View {
-        MediaDetailedView(vm: EntryViewModel(data: TDItem.example))
-    }
-}
+//
+//struct WatchListDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WatchListDetailView(entry: <#T##EntryData#>, vm: <#T##WatchlistViewModel#>)
+//
+//    }
+//}

@@ -17,7 +17,9 @@ struct WatchListView: View {
                 }
                 else {
                     ForEach(vm.entryList, id: \.id) { item in
-                        MediaEntryView(vm: EntryViewModel(entry: item))
+                        NavigationLink(destination: WatchListDetailView(entry: item, vm: vm)) {
+                            WatchListGenericEntryView(entry: item)
+                        }
                         Divider()
                     }
                 }

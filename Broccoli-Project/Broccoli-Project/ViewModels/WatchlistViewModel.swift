@@ -12,6 +12,10 @@ import CoreData
     
     @Published var mediaType: MediaType = .music
     @Published var entryList : [EntryModel] = []
+    
+    init() {
+        fetchAllEntries()
+    }
 
     func fetchAllEntries() {
         entryList = CoreDataManager.shared.getAllTDItems().map(EntryModel.init)
@@ -21,6 +25,23 @@ import CoreData
         return entryList.filter { item in
             item.type.contains(mediaType.rawValue)
         }
+    }
+    
+    func addToWatchlist(entry: EntryModel) {
+        let existingEntry = CoreDataManager.shared.getEntryDataBy(id: entry.id)
+        if let _ = existingEntry {
+            return
+        }
+        
+        let entryData = EntryData(context: CoreDataManager.shared.viewContext)
+        entryData.type = entry.type
+        entryData.name = entry.name
+        entryData.yID = entry.yID
+        entryData.wTeaser = entry.wTeaser
+        entryData.wUrl = entry.wUrl
+        entryData.yUrl = entry.yUrl
+        entryData.imageUrl = entry.imageUrl
+        CoreDataManager.shared.save()
     }
     
     func delete(entry: EntryModel) {
