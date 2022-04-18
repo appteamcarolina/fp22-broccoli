@@ -11,13 +11,11 @@ import CoreData.NSManagedObjectID
 class EntryViewModel: ObservableObject {
     let data: TDItem
     @Published var imgURLString: String?
-    @Published var isInWaitlist: Bool?
     var entryID: NSManagedObjectID?
     
     init(data: TDItem) {
         self.data = data
         imgURLString = nil
-        isInWaitlist = false
     }
      
     func fetchImageURL() {
@@ -42,7 +40,6 @@ class EntryViewModel: ObservableObject {
         entry.imageUrl = imgURLString
         CoreDataManager.shared.save()
         entryID = entry.objectID
-        self.isInWaitlist = true
     }
     
     func deleteFromWatchlist() {
@@ -53,7 +50,6 @@ class EntryViewModel: ObservableObject {
         let existingEntryData = CoreDataManager.shared.getEntryDataBy(id: entryID)
         if let existingEntryData = existingEntryData {
             CoreDataManager.shared.delete(entry: existingEntryData)
-            self.isInWaitlist = false
         }
     }
 }

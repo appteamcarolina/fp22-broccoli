@@ -11,6 +11,8 @@ struct MediaDetailedView: View {
     let vm: EntryViewModel
     @State var teaserIsCollapsed = true
     @State var teaserLineLimit: Int? = 10
+    @State var isInWaitlist = false
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -53,15 +55,15 @@ struct MediaDetailedView: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
-                                if !(vm.isInWaitlist ?? true) {
+                                if !(isInWaitlist) {
                                     vm.addToWatchlist()
-                                    vm.isInWaitlist = true
+                                    isInWaitlist = true
                                 } else {
                                     vm.deleteFromWatchlist()
-                                    vm.isInWaitlist = false
+                                    isInWaitlist = false
                                 }
                             } label: {
-                                Image(systemName: vm.isInWaitlist ?? false ? "star.fill" : "star")
+                                Image(systemName: isInWaitlist ? "star.fill" : "star")
                             }
                         }
                         Rectangle()
