@@ -8,6 +8,8 @@
 import Foundation
 import CoreData.NSManagedObjectID
 
+/// View model for a search entry. Accepts a `TDItem` as a parameter, from which it derives most if its data. These objects are essentially wrappers for the `TDItem` data returned by the
+/// TasteDiveService. This view model helps the application fetch the image URL of the described media item for the views. It also specifies the method for adding an item to the saved list.
 class EntryViewModel: ObservableObject {
     let data: TDItem
     @Published var imgURLString: String?

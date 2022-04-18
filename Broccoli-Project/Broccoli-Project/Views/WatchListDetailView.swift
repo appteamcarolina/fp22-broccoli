@@ -49,15 +49,17 @@ struct WatchListDetailView: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
-                                if !(isInWatchlist) {
-                                    vm.addToWatchlist()
-                                    isInWatchlist = true
-                                } else {
-                                    vm.deleteFromWatchList()
-                                    isInWatchlist = false
+                                withAnimation {
+                                    if !(isInWatchlist) {
+                                        vm.addToWatchlist()
+                                        isInWatchlist = true
+                                    } else {
+                                        vm.deleteFromWatchList()
+                                        isInWatchlist = false
+                                    }
                                 }
                             } label: {
-                                Image(systemName: isInWatchlist ? "bookmark.fill" : "bookmark.slash")
+                                Image(systemName: isInWatchlist ? "bookmark.fill" : "bookmark")
                             }
                         }
                         Rectangle()
