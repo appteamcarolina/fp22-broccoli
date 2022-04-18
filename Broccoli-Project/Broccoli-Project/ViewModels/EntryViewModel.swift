@@ -64,13 +64,17 @@ class EntryViewModel: ObservableObject {
     }
     
     func deleteFromWatchlist() {
-        guard let entryID = entryID else {
+        guard let entryList = entryList else {
             return
         }
         
-        let existingEntryData = CoreDataManager.shared.getEntryDataBy(id: entryID)
-        if let existingEntryData = existingEntryData {
-            CoreDataManager.shared.delete(entry: existingEntryData)
+        for entry in entryList {
+            if (entry.name == data.name && entry.type == data.type) {
+                let existingEntryData = CoreDataManager.shared.getEntryDataBy(id: entry.id)
+                if let existingEntryData = existingEntryData {
+                    CoreDataManager.shared.delete(entry: existingEntryData)
+                }
+            }
         }
     }
 }
