@@ -18,7 +18,7 @@ struct WatchListDetailView: View {
         GeometryReader { geo in
             ScrollView {
                 VStack(alignment: .leading) {
-                    AsyncImage(url: URL(string: entry.imageUrl ?? "")) { phase in
+                    AsyncImage(url: URL(string: entry.imageUrl)) { phase in
                         switch phase {
                         case .empty:
                             Color.purple.opacity(0.1)

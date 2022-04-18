@@ -42,12 +42,14 @@ import CoreData
         entryData.yUrl = entry.yUrl
         entryData.imageUrl = entry.imageUrl
         CoreDataManager.shared.save()
+        fetchAllEntries()
     }
     
     func delete(entry: EntryModel) {
         let existingEntry = CoreDataManager.shared.getEntryDataBy(id: entry.id)
         if let existingEntry = existingEntry {
             CoreDataManager.shared.delete(entry: existingEntry)
+            fetchAllEntries()
         }
     }
 }
