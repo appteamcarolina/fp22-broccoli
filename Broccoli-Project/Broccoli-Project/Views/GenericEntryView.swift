@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenericEntryView: View {
-    @StateObject var vm: EntryViewModel
+    @ObservedObject var vm: EntryViewModel
     var body: some View {
         HStack {
             if vm.imgURLString != nil {

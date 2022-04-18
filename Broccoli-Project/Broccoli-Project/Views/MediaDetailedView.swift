@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MediaDetailedView: View {
-    let vm: EntryViewModel
+    @ObservedObject var vm: EntryViewModel
     @State var teaserIsCollapsed = true
     @State var teaserLineLimit: Int? = 10
     @State var isInWaitlist = false
@@ -63,7 +63,7 @@ struct MediaDetailedView: View {
                                     isInWaitlist = false
                                 }
                             } label: {
-                                Image(systemName: isInWaitlist ? "star.fill" : "star")
+                                Image(systemName: isInWaitlist ? "bookmark.fill" : "bookmark.slash")
                             }
                         }
                         Rectangle()

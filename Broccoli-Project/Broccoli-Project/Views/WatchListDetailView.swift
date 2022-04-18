@@ -57,7 +57,7 @@ struct WatchListDetailView: View {
                                     isInWatchlist = false
                                 }
                             } label: {
-                                Image(systemName: isInWatchlist ? "star.fill" : "star")
+                                Image(systemName: isInWatchlist ? "bookmark.fill" : "bookmark.slash")
                             }
                         }
                         Rectangle()
