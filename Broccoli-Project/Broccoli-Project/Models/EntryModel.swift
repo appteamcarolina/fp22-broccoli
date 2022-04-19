@@ -16,7 +16,7 @@ struct EntryModel {
     }
     
     var type: String {
-        return MediaType(rawValue: entryData.type ?? "")?.toString() ?? "Unknown"
+        return entryData.type ?? ""
     }
     
     var name: String {

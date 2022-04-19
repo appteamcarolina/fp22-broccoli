@@ -71,10 +71,10 @@ struct MediaDetailedView: View {
                                 withAnimation {
                                     if !(vm.isInWatchlist()) {
                                         vm.addToWatchlist()
-                                        isInWatchList = true
+                                        isInWatchList = vm.isInWatchlist()
                                     } else {
                                         vm.deleteFromWatchlist()
-                                        isInWatchList = false
+                                        isInWatchList = vm.isInWatchlist()
                                     }
                                 }
                                 
