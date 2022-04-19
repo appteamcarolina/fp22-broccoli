@@ -14,7 +14,8 @@ class EntryViewModel: ObservableObject {
     let data: TDItem
     @Published var imgURLString: String?
     var entryID: NSManagedObjectID?
-    
+    var entryList: [EntryModel]?
+        
     init(data: TDItem) {
         self.data = data
         imgURLString = nil
@@ -34,8 +35,26 @@ class EntryViewModel: ObservableObject {
         }
     }
     
+    func isInWatchlist() -> Bool {
+        fetchAllEntries()
+        guard let entryList = entryList else {
+            return false
+        }
+        
+        for entry in entryList {
+            if (entry.name == data.name && entry.type == data.type) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func fetchAllEntries() {
+        entryList = CoreDataManager.shared.getAllTDItems().map(EntryModel.init)
+    }
+    
     func addToWatchlist() {
-        guard data.name != "", data.type != "", imgURLString != "" else {
+        if (isInWatchlist()) {
             return
         }
         
@@ -52,13 +71,17 @@ class EntryViewModel: ObservableObject {
     }
     
     func deleteFromWatchlist() {
-        guard let entryID = entryID else {
+        guard let entryList = entryList else {
             return
         }
         
-        let existingEntryData = CoreDataManager.shared.getEntryDataBy(id: entryID)
-        if let existingEntryData = existingEntryData {
-            CoreDataManager.shared.delete(entry: existingEntryData)
+        for entry in entryList {
+            if (entry.name == data.name && entry.type == data.type) {
+                let existingEntryData = CoreDataManager.shared.getEntryDataBy(id: entry.id)
+                if let existingEntryData = existingEntryData {
+                    CoreDataManager.shared.delete(entry: existingEntryData)
+                }
+            }
         }
     }
 }

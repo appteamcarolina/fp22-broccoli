@@ -21,11 +21,12 @@ struct MediaEntryView: View {
             }
         }
         .task {
-            DispatchQueue.global().async {
-                vm.fetchImageURL()
+            if (vm.imgURLString == nil) {
+                DispatchQueue.global().async {
+                    vm.fetchImageURL()
+                }
             }
         }
-        
     }
 }
 
