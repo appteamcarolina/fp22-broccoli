@@ -35,17 +35,7 @@ struct MainView: View {
                 ColoredTypePicker(selectedType: $vm.selectedQueryType, list: mediaTypes)
                     .frame(height:40)
                     .padding()
-                
-                Button {
-                    vm.addQueryItem()
-                } label: {
-                    Text("Add Search Term")
-                        .padding()
-                        .background(TasteyColors.tongueColor)
-                        .foregroundColor(.primary)
-                        .clipShape(Capsule())
-                }
-                
+
                 WrappingHStack(vm.queryList) { query in
                     QueryItemView(item: query, vm: vm)
                         .padding(.vertical, 2)
@@ -54,10 +44,14 @@ struct MainView: View {
                 
                 NavigationLink(destination: ResultsListView(vm: vm), isActive: $vm.navLinkIsActive) {
                     Button(action: {
-                        vm.fetchRecommendations()
-                        vm.navLinkIsActive = true
+                        if vm.searchBarContent == "" {
+                            vm.fetchRecommendations()
+                            vm.navLinkIsActive = true
+                        } else {
+                            vm.addQueryItem()
+                        }
                     }) {
-                        Text("Recommend Media")
+                        Text(vm.searchBarContent == "" ? "Recommend Media" : "Add Search Term")
                             .padding()
                             .background(TasteyColors.tongueColor)
                             .foregroundColor(.primary)

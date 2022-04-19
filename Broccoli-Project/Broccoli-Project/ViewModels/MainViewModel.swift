@@ -38,6 +38,9 @@ import Foundation
         }
     }
     func addQueryItem() -> Void {
+        if searchBarContent == "" {
+            return
+        }
         queryList.append(TDQuery(name: searchBarContent, type: selectedQueryType))
         searchBarContent = ""
     }

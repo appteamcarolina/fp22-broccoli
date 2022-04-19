@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WatchListDetailView: View {
     let entry: EntryModel
+    @Environment(\.presentationMode) var presentationMode : Binding<PresentationMode>
     @ObservedObject var vm: WatchlistViewModel
     @State var teaserIsCollapsed = true
     @State var teaserLineLimit: Int? = 10
@@ -50,8 +51,6 @@ struct WatchListDetailView: View {
                         }
                     }
                 
-                    
-                    
                     VStack(alignment: .leading) {
                         Text(vm.curName ?? "")
                             .font(.custom("Times", size: 34, relativeTo: .title))
@@ -107,10 +106,15 @@ struct WatchListDetailView: View {
                         
                     }
                     .padding()
+                    .navigationBarTitleDisplayMode(.inline)
                 }
             }
         }
         .onAppear {
+            if entry.name == "" {
+                presentationMode.wrappedValue.dismiss()
+                return
+            }
             vm.updateCurEntry(entry: entry)
         }
     }
