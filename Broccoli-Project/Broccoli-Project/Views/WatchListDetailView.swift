@@ -23,19 +23,33 @@ struct WatchListDetailView: View {
                         case .empty:
                             Color.purple.opacity(0.1)
                         case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFill()
+                            ZStack {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .blur(radius: 10)
+                                    .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                    .cornerRadius(0)
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: geo.size.height*0.3, alignment: .top)
+                                    .cornerRadius(0)
+                            }
+                            
                         case .failure(_):
                             Image(systemName: "exclamationmark.icloud")
                                 .resizable()
                                 .scaledToFill()
+                                .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                .cornerRadius(0)
                         @unknown default:
                             Image(systemName: "exclamationmark.icloud")
+                                .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                .cornerRadius(0)
                         }
                     }
-                    .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
-                    .cornerRadius(0)
+                
                     
                     
                     VStack(alignment: .leading) {

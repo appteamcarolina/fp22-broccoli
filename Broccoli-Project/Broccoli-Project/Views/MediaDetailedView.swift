@@ -23,24 +23,37 @@ struct MediaDetailedView: View {
                             case .empty:
                                 NoImageAvailableView()
                             case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFill()
+                                ZStack {
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .blur(radius: 10)
+                                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                        .cornerRadius(0)
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: geo.size.height*0.3, alignment: .top)
+                                        .cornerRadius(0)
+                                }
+                                
                             case .failure(_):
                                 Image(systemName: "exclamationmark.icloud")
                                     .resizable()
                                     .scaledToFill()
+                                    .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                    .cornerRadius(0)
                             @unknown default:
                                 Image(systemName: "exclamationmark.icloud")
+                                    .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                                    .cornerRadius(0)
                             }
                         }
-                        .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
-                        .cornerRadius(0)
                     }
                     else {
                         Image(systemName: "exclamationmark.icloud")
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(5)
+                            .frame(width: geo.size.width, height: geo.size.height*0.3, alignment: .top)
+                            .cornerRadius(0)
                     }
                     
                     
