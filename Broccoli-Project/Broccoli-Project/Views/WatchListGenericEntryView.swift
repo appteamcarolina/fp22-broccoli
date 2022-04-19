@@ -35,7 +35,7 @@ struct WatchListGenericEntryView: View {
                 Text(entry.name)
                     .foregroundColor(.primary)
                     .lineLimit(1)
-                Text(entry.type)
+                Text(MediaType(rawValue: entry.type)?.toString() ?? "Unknown")
                     .foregroundColor(.secondary)
             }
             .padding(.leading, 6)
