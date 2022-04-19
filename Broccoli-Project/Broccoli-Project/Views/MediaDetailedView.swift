@@ -113,6 +113,7 @@ struct MediaDetailedView: View {
                         
                     }
                     .padding()
+                    .navigationBarTitleDisplayMode(.inline)
                 }
             }
             .onAppear {
