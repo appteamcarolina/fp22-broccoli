@@ -21,7 +21,7 @@ struct MediaDetailedView: View {
                         AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
                             switch phase {
                             case .empty:
-                                Color.purple.opacity(0.1)
+                                NoImageAvailableView()
                             case .success(let image):
                                 image
                                     .resizable()
@@ -88,7 +88,7 @@ struct MediaDetailedView: View {
                                     Image(systemName: "chevron.right")
                                         .rotationEffect(.degrees(teaserIsCollapsed ? 0 : 90))
                                 }
-                                Text(vm.data.wTeaser)
+                                Text(vm.data.wTeaser ?? "No info available.")
                                     .lineLimit(teaserIsCollapsed ? 10 : nil)
                                 
                             }

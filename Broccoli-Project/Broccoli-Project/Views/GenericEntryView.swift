@@ -15,7 +15,9 @@ struct GenericEntryView: View {
                 AsyncImage(url: URL(string: vm.imgURLString!)) { phase in
                     switch phase {
                     case .empty:
-                        TasteyColors.tongueColor.opacity(0.5)
+                        NoImageAvailableView()
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(5)
                     case .success(let image):
                         image
                             .resizable()

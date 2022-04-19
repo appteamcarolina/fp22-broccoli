@@ -21,7 +21,14 @@ class EntryViewModel: ObservableObject {
     }
      
     func fetchImageURL() {
-        let imgURL = HTMLParser.getImageURLString(wURLString: data.wUrl)
+        guard let url = data.wUrl else {
+            print("No wURL available")
+            DispatchQueue.main.async {
+                self.imgURLString = ""
+            }
+            return
+        }
+        let imgURL = HTMLParser.getImageURLString(wURLString: url)
         DispatchQueue.main.async {
             self.imgURLString = imgURL
         }
