@@ -14,7 +14,7 @@ struct WatchListView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     if vm.entryList.isEmpty {
-                        NoResultsView()
+                        NoSavedView()
                     }
                     else {
                         ForEach(vm.entryList, id: \.id) { item in
