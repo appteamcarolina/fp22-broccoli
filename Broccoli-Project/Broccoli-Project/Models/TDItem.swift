@@ -12,8 +12,8 @@ import Foundation
 struct TDItem: Codable, Equatable {
     let name: String
     let type: String
-    let wTeaser: String
-    let wUrl: String
+    let wTeaser: String?
+    let wUrl: String?
     let yUrl: String?
     let yID: String?
     

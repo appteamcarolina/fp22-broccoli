@@ -14,6 +14,8 @@ struct MediaEntryView: View {
             switch vm.data.type {
             case "music":
                 ArtistEntryView(vm: vm)
+            case "author":
+                ArtistEntryView(vm: vm)
             default:
                 GenericEntryView(vm: vm)
             }

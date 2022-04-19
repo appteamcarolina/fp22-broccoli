@@ -14,7 +14,7 @@ struct WatchListGenericEntryView: View {
             AsyncImage(url: URL(string: entry.imageUrl)) { phase in
                 switch phase {
                 case .empty:
-                    TasteyColors.tongueColor.opacity(0.5)
+                    NoImageAvailableView()
                 case .success(let image):
                     image
                         .resizable()

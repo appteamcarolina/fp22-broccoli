@@ -32,6 +32,7 @@ import Foundation
                 queryStatus = .success
             }
             catch {
+                print(error.localizedDescription)
                 queryStatus = .failure
             }
         }
