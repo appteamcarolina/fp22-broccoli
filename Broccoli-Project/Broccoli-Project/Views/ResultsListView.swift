@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ResultsListView: View {
     @ObservedObject var vm: MainViewModel
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         switch vm.queryStatus {
         case .loading:
@@ -28,7 +29,13 @@ struct ResultsListView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Results")
+            .toolbar {
+                                ToolbarItem(placement: .principal) {
+                                    Image(colorScheme == .light ? "tastey_logo_light_transparent" : "tastey_logo_dark_transparent")
+                                        .resizable()
+                                        .scaledToFit()
+                                }
+                            }
         case .failure:
             Text("Failed to fetch recommendations.")
         case .idle:
