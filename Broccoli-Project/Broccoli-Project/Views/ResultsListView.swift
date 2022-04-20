@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct ResultsListView: View {
     @ObservedObject var vm: MainViewModel
@@ -17,6 +18,18 @@ struct ResultsListView: View {
         case .success:
             ScrollView {
                 VStack(alignment: .leading) {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            Text("Searches: ")
+                                .font(.title3)
+                            ForEach(vm.queryList) { query in
+                                QueryItemView(item: query, vm: vm)
+                                    .padding(.vertical, 2)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 5)
+                    Divider()
                     if vm.recommendationList.isEmpty {
                         NoResultsView()
                     }
@@ -29,13 +42,14 @@ struct ResultsListView: View {
                 }
                 .padding()
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                                ToolbarItem(placement: .principal) {
-                                    Image(colorScheme == .light ? "tastey_logo_light_transparent" : "tastey_logo_dark_transparent")
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                            }
+                ToolbarItem(placement: .principal) {
+                    Image(colorScheme == .light ? "tastey_logo_light_transparent" : "tastey_logo_dark_transparent")
+                        .resizable()
+                        .scaledToFit()
+                }
+            }
         case .failure:
             Text("Failed to fetch recommendations.")
         case .idle:
