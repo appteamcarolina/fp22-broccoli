@@ -57,7 +57,7 @@
 /* Begin PBXFileReference section */
 		161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Broccoli-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectTests.swift; sourceTree = "<group>"; };
-		16389E6727F3B1A600A9B662 /* Broccoli-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Broccoli-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16389E6727F3B1A600A9B662 /* Tastey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tastey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectApp.swift; sourceTree = "<group>"; };
 		16389E6C27F3B1A600A9B662 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		16389E6E27F3B1A700A9B662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		16389E6827F3B1A600A9B662 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16389E6727F3B1A600A9B662 /* Broccoli-Project.app */,
+				16389E6727F3B1A600A9B662 /* Tastey.app */,
 				161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */,
 			);
 			name = Products;
@@ -256,7 +256,7 @@
 				16638E232808EF990058DD34 /* WrappingHStack */,
 			);
 			productName = "Broccoli-Project";
-			productReference = 16389E6727F3B1A600A9B662 /* Broccoli-Project.app */;
+			productReference = 16389E6727F3B1A600A9B662 /* Tastey.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -552,7 +552,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.broccoli.Broccoli-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tastey;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,7 +582,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.broccoli.Broccoli-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tastey;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
