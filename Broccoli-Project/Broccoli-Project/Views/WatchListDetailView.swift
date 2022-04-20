@@ -58,7 +58,7 @@ struct WatchListDetailView: View {
                             .italic()
                             .bold()
                         HStack {
-                            Text(vm.curType ?? "")
+                            Text(MediaType(rawValue: vm.curType ?? "")?.toString() ?? "Unknown")
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button {
