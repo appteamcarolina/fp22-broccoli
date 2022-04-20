@@ -48,6 +48,7 @@ import Foundation
     func removeQueryItem(_ item: TDQuery) {
         let ind = queryList.firstIndex(of: item)!
         queryList.remove(at: ind)
+        fetchRecommendations()
     }
 }
 
