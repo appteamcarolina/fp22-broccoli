@@ -278,7 +278,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Broccoli-Project" */;
+			buildConfigurationList = 16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Tastey" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Broccoli-Project" */ = {
+		16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Tastey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16389E7327F3B1A700A9B662 /* Debug */,
