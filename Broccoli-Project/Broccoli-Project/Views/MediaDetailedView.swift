@@ -111,6 +111,15 @@ struct MediaDetailedView: View {
                         }
                         .buttonStyle(.plain)
                         
+                        HStack {
+                            Spacer()
+                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.data.wUrl!)!)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        
+                        
                     }
                     .padding()
                     .navigationBarTitleDisplayMode(.inline)

@@ -103,6 +103,13 @@ struct WatchListDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         .buttonStyle(.plain)
+                        HStack {
+                            Spacer()
+                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.curWUrl ?? "https://en.wikipedia.org/wiki/Main_Page")!)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
                         
                     }
                     .padding()
