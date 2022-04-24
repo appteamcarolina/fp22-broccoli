@@ -113,7 +113,7 @@ struct MediaDetailedView: View {
                         
                         HStack {
                             Spacer()
-                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.data.wUrl!)!)
+                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.data.wUrl ?? "https://en.wikipedia.org/wiki/Main_Page")  ?? URL(string: "https://en.wikipedia.org/wiki/Main_Page")!)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             Spacer()

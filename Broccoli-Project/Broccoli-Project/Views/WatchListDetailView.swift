@@ -105,7 +105,7 @@ struct WatchListDetailView: View {
                         .buttonStyle(.plain)
                         HStack {
                             Spacer()
-                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.curWUrl ?? "https://en.wikipedia.org/wiki/Main_Page")!)
+                            Link("From Wikipedia. Click for link.", destination: URL(string: vm.curWUrl ?? "https://en.wikipedia.org/wiki/Main_Page")  ?? URL(string: "https://en.wikipedia.org/wiki/Main_Page")!)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             Spacer()
