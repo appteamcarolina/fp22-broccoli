@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161783DB27FEAC650052D0AD /* Broccoli_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */; };
+		161783DB27FEAC650052D0AD /* TasteyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161783DA27FEAC650052D0AD /* TasteyTests.swift */; };
 		16389E6B27F3B1A600A9B662 /* Broccoli_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */; };
 		16389E6D27F3B1A600A9B662 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16389E6C27F3B1A600A9B662 /* MainView.swift */; };
 		16389E6F27F3B1A700A9B662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16389E6E27F3B1A700A9B662 /* Assets.xcassets */; };
@@ -55,9 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Broccoli-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectTests.swift; sourceTree = "<group>"; };
-		16389E6727F3B1A600A9B662 /* Broccoli-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Broccoli-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161783D827FEAC650052D0AD /* TasteyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasteyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		161783DA27FEAC650052D0AD /* TasteyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteyTests.swift; sourceTree = "<group>"; };
+		16389E6727F3B1A600A9B662 /* Tastey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tastey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16389E6A27F3B1A600A9B662 /* Broccoli_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broccoli_ProjectApp.swift; sourceTree = "<group>"; };
 		16389E6C27F3B1A600A9B662 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		16389E6E27F3B1A700A9B662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,19 +112,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		161783D927FEAC650052D0AD /* Broccoli-ProjectTests */ = {
+		161783D927FEAC650052D0AD /* TasteyTests */ = {
 			isa = PBXGroup;
 			children = (
-				161783DA27FEAC650052D0AD /* Broccoli_ProjectTests.swift */,
+				161783DA27FEAC650052D0AD /* TasteyTests.swift */,
 			);
-			path = "Broccoli-ProjectTests";
+			path = TasteyTests;
 			sourceTree = "<group>";
 		};
 		16389E5E27F3B1A600A9B662 = {
 			isa = PBXGroup;
 			children = (
 				16389E6927F3B1A600A9B662 /* Broccoli-Project */,
-				161783D927FEAC650052D0AD /* Broccoli-ProjectTests */,
+				161783D927FEAC650052D0AD /* TasteyTests */,
 				16389E6827F3B1A600A9B662 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,8 +132,8 @@
 		16389E6827F3B1A600A9B662 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16389E6727F3B1A600A9B662 /* Broccoli-Project.app */,
-				161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */,
+				16389E6727F3B1A600A9B662 /* Tastey.app */,
+				161783D827FEAC650052D0AD /* TasteyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		161783D727FEAC650052D0AD /* Broccoli-ProjectTests */ = {
+		161783D727FEAC650052D0AD /* TasteyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "Broccoli-ProjectTests" */;
+			buildConfigurationList = 161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "TasteyTests" */;
 			buildPhases = (
 				161783D427FEAC650052D0AD /* Sources */,
 				161783D527FEAC650052D0AD /* Frameworks */,
@@ -233,14 +233,14 @@
 			dependencies = (
 				161783DD27FEAC650052D0AD /* PBXTargetDependency */,
 			);
-			name = "Broccoli-ProjectTests";
+			name = TasteyTests;
 			productName = "Broccoli-ProjectTests";
-			productReference = 161783D827FEAC650052D0AD /* Broccoli-ProjectTests.xctest */;
+			productReference = 161783D827FEAC650052D0AD /* TasteyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		16389E6627F3B1A600A9B662 /* Broccoli-Project */ = {
+		16389E6627F3B1A600A9B662 /* Tastey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16389E7527F3B1A700A9B662 /* Build configuration list for PBXNativeTarget "Broccoli-Project" */;
+			buildConfigurationList = 16389E7527F3B1A700A9B662 /* Build configuration list for PBXNativeTarget "Tastey" */;
 			buildPhases = (
 				16389E6327F3B1A600A9B662 /* Sources */,
 				16389E6427F3B1A600A9B662 /* Frameworks */,
@@ -250,13 +250,13 @@
 			);
 			dependencies = (
 			);
-			name = "Broccoli-Project";
+			name = Tastey;
 			packageProductDependencies = (
 				16FB4448280232120054DCB6 /* SwiftSoup */,
 				16638E232808EF990058DD34 /* WrappingHStack */,
 			);
 			productName = "Broccoli-Project";
-			productReference = 16389E6727F3B1A600A9B662 /* Broccoli-Project.app */;
+			productReference = 16389E6727F3B1A600A9B662 /* Tastey.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +278,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Broccoli-Project" */;
+			buildConfigurationList = 16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Tastey" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -295,8 +295,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				16389E6627F3B1A600A9B662 /* Broccoli-Project */,
-				161783D727FEAC650052D0AD /* Broccoli-ProjectTests */,
+				16389E6627F3B1A600A9B662 /* Tastey */,
+				161783D727FEAC650052D0AD /* TasteyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161783DB27FEAC650052D0AD /* Broccoli_ProjectTests.swift in Sources */,
+				161783DB27FEAC650052D0AD /* TasteyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +371,7 @@
 /* Begin PBXTargetDependency section */
 		161783DD27FEAC650052D0AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16389E6627F3B1A600A9B662 /* Broccoli-Project */;
+			target = 16389E6627F3B1A600A9B662 /* Tastey */;
 			targetProxy = 161783DC27FEAC650052D0AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -391,7 +391,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Broccoli-Project.app/Broccoli-Project";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tastey.app/Tastey";
 			};
 			name = Debug;
 		};
@@ -409,7 +409,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Broccoli-Project.app/Broccoli-Project";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tastey.app/Tastey";
 			};
 			name = Release;
 		};
@@ -537,7 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Broccoli-Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 22875T464M;
+				DEVELOPMENT_TEAM = M23G284TD2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -567,7 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Broccoli-Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 22875T464M;
+				DEVELOPMENT_TEAM = M23G284TD2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -592,7 +592,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "Broccoli-ProjectTests" */ = {
+		161783E027FEAC650052D0AD /* Build configuration list for PBXNativeTarget "TasteyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				161783DE27FEAC650052D0AD /* Debug */,
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Broccoli-Project" */ = {
+		16389E6227F3B1A600A9B662 /* Build configuration list for PBXProject "Tastey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16389E7327F3B1A700A9B662 /* Debug */,
@@ -610,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16389E7527F3B1A700A9B662 /* Build configuration list for PBXNativeTarget "Broccoli-Project" */ = {
+		16389E7527F3B1A700A9B662 /* Build configuration list for PBXNativeTarget "Tastey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16389E7627F3B1A700A9B662 /* Debug */,
